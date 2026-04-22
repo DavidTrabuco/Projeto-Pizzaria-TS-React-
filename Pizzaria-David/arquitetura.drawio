@@ -1,190 +1,259 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<mxGraphModel dx="1800" dy="900" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1920" pageHeight="1200" math="0" shadow="0">
-  <root>
-    <mxCell id="0" />
-    <mxCell id="1" parent="0" />
-
-    <!-- ===== TÍTULO ===== -->
-    <mxCell id="titulo" value="Arquitetura — Pizzaria David" style="text;html=1;strokeColor=none;fillColor=none;align=center;fontSize=22;fontStyle=1;fontColor=#1a1a2e;" vertex="1" parent="1">
-      <mxGeometry x="660" y="20" width="500" height="40" as="geometry" />
-    </mxCell>
-
-    <!-- ===== CAMADA 1: ENTRY POINT ===== -->
-    <mxCell id="l1" value="1. Entry Point" style="text;html=1;strokeColor=none;fillColor=none;fontStyle=1;fontSize=10;fontColor=#666;" vertex="1" parent="1">
-      <mxGeometry x="60" y="75" width="120" height="20" as="geometry" />
-    </mxCell>
-
-    <mxCell id="maintsx" value="&lt;b&gt;main.tsx&lt;/b&gt;&#xa;createRoot + BrowserRouter" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;fontSize=11;" vertex="1" parent="1">
-      <mxGeometry x="840" y="70" width="200" height="50" as="geometry" />
-    </mxCell>
-
-    <!-- ===== CAMADA 2: ROUTER ===== -->
-    <mxCell id="l2" value="2. Router" style="text;html=1;strokeColor=none;fillColor=none;fontStyle=1;fontSize=10;fontColor=#666;" vertex="1" parent="1">
-      <mxGeometry x="60" y="175" width="120" height="20" as="geometry" />
-    </mxCell>
-
-    <mxCell id="pizzariatsx" value="&lt;b&gt;Pizzaria.tsx&lt;/b&gt;&#xa;&lt;Routes&gt; — define todas as rotas" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;fontSize=11;" vertex="1" parent="1">
-      <mxGeometry x="840" y="170" width="200" height="50" as="geometry" />
-    </mxCell>
-
-    <mxCell id="arr_main_router" style="edgeStyle=orthogonalEdgeStyle;rounded=0;" edge="1" source="maintsx" target="pizzariatsx" parent="1">
-      <mxGeometry relative="1" as="geometry" />
-    </mxCell>
-
-    <!-- ===== CAMADA 3: ROTAS ===== -->
-    <mxCell id="l3" value="3. Rotas" style="text;html=1;strokeColor=none;fillColor=none;fontStyle=1;fontSize=10;fontColor=#666;" vertex="1" parent="1">
-      <mxGeometry x="60" y="285" width="120" height="20" as="geometry" />
-    </mxCell>
-
-    <!-- Grupo Páginas Públicas -->
-    <mxCell id="grp_public" value="Páginas Públicas" style="swimlane;startSize=25;fillColor=#f0fff0;strokeColor=#82b366;fontStyle=1;fontSize=10;" vertex="1" parent="1">
-      <mxGeometry x="100" y="280" width="560" height="100" as="geometry" />
-    </mxCell>
-    <mxCell id="r_home"       value="/ → Home"           style="rounded=1;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;fontSize=10;" vertex="1" parent="grp_public"><mxGeometry x="10"  y="35" width="75" height="35" as="geometry" /></mxCell>
-    <mxCell id="r_about"      value="/about → AboutUs"   style="rounded=1;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;fontSize=10;" vertex="1" parent="grp_public"><mxGeometry x="95"  y="35" width="90" height="35" as="geometry" /></mxCell>
-    <mxCell id="r_menu"       value="/menu → Menu"       style="rounded=1;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;fontSize=10;" vertex="1" parent="grp_public"><mxGeometry x="195" y="35" width="75" height="35" as="geometry" /></mxCell>
-    <mxCell id="r_app"        value="/app → AppPromo"    style="rounded=1;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;fontSize=10;" vertex="1" parent="grp_public"><mxGeometry x="280" y="35" width="85" height="35" as="geometry" /></mxCell>
-    <mxCell id="r_newsletter" value="/newsletter"        style="rounded=1;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;fontSize=10;" vertex="1" parent="grp_public"><mxGeometry x="375" y="35" width="80" height="35" as="geometry" /></mxCell>
-    <mxCell id="r_contact"    value="/contact"           style="rounded=1;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;fontSize=10;" vertex="1" parent="grp_public"><mxGeometry x="465" y="35" width="80" height="35" as="geometry" /></mxCell>
-
-    <!-- Grupo Auth -->
-    <mxCell id="grp_auth" value="Autenticação" style="swimlane;startSize=25;fillColor=#fff8f0;strokeColor=#d79b00;fontStyle=1;fontSize=10;" vertex="1" parent="1">
-      <mxGeometry x="680" y="280" width="360" height="100" as="geometry" />
-    </mxCell>
-    <mxCell id="r_login"    value="/login → Login"         style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffe6cc;strokeColor=#d79b00;fontSize=10;" vertex="1" parent="grp_auth"><mxGeometry x="10"  y="35" width="100" height="35" as="geometry" /></mxCell>
-    <mxCell id="r_adminlogin" value="/admin/login → AdminLogin" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffe6cc;strokeColor=#d79b00;fontSize=10;" vertex="1" parent="grp_auth"><mxGeometry x="120" y="35" width="120" height="35" as="geometry" /></mxCell>
-    <mxCell id="r_cadastro" value="/cadastro → Cadastro"  style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffe6cc;strokeColor=#d79b00;fontSize=10;" vertex="1" parent="grp_auth"><mxGeometry x="250" y="35" width="100" height="35" as="geometry" /></mxCell>
-
-    <!-- Grupo Pedidos/Reserva -->
-    <mxCell id="grp_order" value="Pedidos / Reserva" style="swimlane;startSize=25;fillColor=#fff0f0;strokeColor=#b85450;fontStyle=1;fontSize=10;" vertex="1" parent="1">
-      <mxGeometry x="1060" y="280" width="260" height="100" as="geometry" />
-    </mxCell>
-    <mxCell id="r_order"       value="/order → Pedido"       style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f8cecc;strokeColor=#b85450;fontSize=10;" vertex="1" parent="grp_order"><mxGeometry x="10"  y="35" width="110" height="35" as="geometry" /></mxCell>
-    <mxCell id="r_reservation" value="/reservation → Reservation" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f8cecc;strokeColor=#b85450;fontSize=10;" vertex="1" parent="grp_order"><mxGeometry x="130" y="35" width="120" height="35" as="geometry" /></mxCell>
-
-    <!-- Grupo Admin -->
-    <mxCell id="grp_admin" value="Admin (rotas aninhadas)" style="swimlane;startSize=25;fillColor=#f5f0ff;strokeColor=#9673a6;fontStyle=1;fontSize=10;" vertex="1" parent="1">
-      <mxGeometry x="1340" y="280" width="440" height="100" as="geometry" />
-    </mxCell>
-    <mxCell id="r_admin"         value="/admin → Dashboard"     style="rounded=1;whiteSpace=wrap;html=1;fillColor=#e1d5e7;strokeColor=#9673a6;fontSize=10;" vertex="1" parent="grp_admin"><mxGeometry x="10"  y="35" width="110" height="35" as="geometry" /></mxCell>
-    <mxCell id="r_adminpedidos"  value="/admin/pedidos"         style="rounded=1;whiteSpace=wrap;html=1;fillColor=#e1d5e7;strokeColor=#9673a6;fontSize=10;" vertex="1" parent="grp_admin"><mxGeometry x="130" y="35" width="90"  height="35" as="geometry" /></mxCell>
-    <mxCell id="r_adminreservas" value="/admin/reservas"        style="rounded=1;whiteSpace=wrap;html=1;fillColor=#e1d5e7;strokeColor=#9673a6;fontSize=10;" vertex="1" parent="grp_admin"><mxGeometry x="230" y="35" width="90"  height="35" as="geometry" /></mxCell>
-    <mxCell id="r_admincardapio" value="/admin/cardapio"        style="rounded=1;whiteSpace=wrap;html=1;fillColor=#e1d5e7;strokeColor=#9673a6;fontSize=10;" vertex="1" parent="grp_admin"><mxGeometry x="330" y="35" width="90"  height="35" as="geometry" /></mxCell>
-
-    <!-- Router → grupos -->
-    <mxCell id="arr_r1" style="edgeStyle=orthogonalEdgeStyle;" edge="1" source="pizzariatsx" target="grp_public" parent="1"><mxGeometry relative="1" as="geometry" /></mxCell>
-    <mxCell id="arr_r2" style="edgeStyle=orthogonalEdgeStyle;" edge="1" source="pizzariatsx" target="grp_auth"   parent="1"><mxGeometry relative="1" as="geometry" /></mxCell>
-    <mxCell id="arr_r3" style="edgeStyle=orthogonalEdgeStyle;" edge="1" source="pizzariatsx" target="grp_order"  parent="1"><mxGeometry relative="1" as="geometry" /></mxCell>
-    <mxCell id="arr_r4" style="edgeStyle=orthogonalEdgeStyle;" edge="1" source="pizzariatsx" target="grp_admin"  parent="1"><mxGeometry relative="1" as="geometry" /></mxCell>
-
-    <!-- ===== CAMADA 4: COMPONENTES ===== -->
-    <mxCell id="l4" value="4. Componentes" style="text;html=1;strokeColor=none;fillColor=none;fontStyle=1;fontSize=10;fontColor=#666;" vertex="1" parent="1">
-      <mxGeometry x="60" y="445" width="130" height="20" as="geometry" />
-    </mxCell>
-
-    <!-- Layout compartilhado -->
-    <mxCell id="grp_layout" value="Layout (compartilhado por páginas públicas)" style="swimlane;startSize=25;fillColor=#fffde7;strokeColor=#d6b656;fontStyle=1;fontSize=10;" vertex="1" parent="1">
-      <mxGeometry x="100" y="440" width="300" height="80" as="geometry" />
-    </mxCell>
-    <mxCell id="c_navbar"  value="NavBar&#xa;(Header)" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#fff2cc;strokeColor=#d6b656;fontSize=10;" vertex="1" parent="grp_layout"><mxGeometry x="10"  y="30" width="130" height="35" as="geometry" /></mxCell>
-    <mxCell id="c_footer"  value="Footer"              style="rounded=1;whiteSpace=wrap;html=1;fillColor=#fff2cc;strokeColor=#d6b656;fontSize=10;" vertex="1" parent="grp_layout"><mxGeometry x="155" y="30" width="130" height="35" as="geometry" /></mxCell>
-
-    <!-- Sections -->
-    <mxCell id="grp_sections" value="Section Components" style="swimlane;startSize=25;fillColor=#f0fff0;strokeColor=#82b366;fontStyle=1;fontSize=10;" vertex="1" parent="1">
-      <mxGeometry x="420" y="440" width="560" height="80" as="geometry" />
-    </mxCell>
-    <mxCell id="c_homesec"    value="Section/Home"       style="rounded=1;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;fontSize=9;" vertex="1" parent="grp_sections"><mxGeometry x="10"  y="30" width="80"  height="35" as="geometry" /></mxCell>
-    <mxCell id="c_aboutsec"   value="Section/AboutUs"    style="rounded=1;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;fontSize=9;" vertex="1" parent="grp_sections"><mxGeometry x="100" y="30" width="90"  height="35" as="geometry" /></mxCell>
-    <mxCell id="c_menusec"    value="Section/Menu"       style="rounded=1;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;fontSize=9;" vertex="1" parent="grp_sections"><mxGeometry x="200" y="30" width="80"  height="35" as="geometry" /></mxCell>
-    <mxCell id="c_appsec"     value="Section/AppPromo"   style="rounded=1;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;fontSize=9;" vertex="1" parent="grp_sections"><mxGeometry x="290" y="30" width="90"  height="35" as="geometry" /></mxCell>
-    <mxCell id="c_newsec"     value="Section/Newsletter" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;fontSize=9;" vertex="1" parent="grp_sections"><mxGeometry x="390" y="30" width="90"  height="35" as="geometry" /></mxCell>
-    <mxCell id="c_consec"     value="Section/Contact"    style="rounded=1;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;fontSize=9;" vertex="1" parent="grp_sections"><mxGeometry x="490" y="30" width="60"  height="35" as="geometry" /></mxCell>
-
-    <!-- Componentes Auth -->
-    <mxCell id="grp_authcomp" value="Componentes Auth" style="swimlane;startSize=25;fillColor=#fff8f0;strokeColor=#d79b00;fontStyle=1;fontSize=10;" vertex="1" parent="1">
-      <mxGeometry x="1000" y="440" width="310" height="80" as="geometry" />
-    </mxCell>
-    <mxCell id="c_login"      value="Login&#xa;(modal)"    style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffe6cc;strokeColor=#d79b00;fontSize=10;" vertex="1" parent="grp_authcomp"><mxGeometry x="10"  y="30" width="80"  height="35" as="geometry" /></mxCell>
-    <mxCell id="c_adminlogin" value="AdminLogin"           style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffe6cc;strokeColor=#d79b00;fontSize=10;" vertex="1" parent="grp_authcomp"><mxGeometry x="100" y="30" width="90"  height="35" as="geometry" /></mxCell>
-    <mxCell id="c_cadastro"   value="Cadastro"             style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffe6cc;strokeColor=#d79b00;fontSize=10;" vertex="1" parent="grp_authcomp"><mxGeometry x="200" y="30" width="100" height="35" as="geometry" /></mxCell>
-
-    <!-- Componentes Pedidos -->
-    <mxCell id="grp_pedcomp" value="Componentes Pedidos" style="swimlane;startSize=25;fillColor=#fff0f0;strokeColor=#b85450;fontStyle=1;fontSize=10;" vertex="1" parent="1">
-      <mxGeometry x="1330" y="440" width="380" height="80" as="geometry" />
-    </mxCell>
-    <mxCell id="c_pedidos"    value="Pedidos"          style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f8cecc;strokeColor=#b85450;fontSize=10;" vertex="1" parent="grp_pedcomp"><mxGeometry x="10"  y="30" width="90"  height="35" as="geometry" /></mxCell>
-    <mxCell id="c_pagamento"  value="Pagamentos"       style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f8cecc;strokeColor=#b85450;fontSize=10;" vertex="1" parent="grp_pedcomp"><mxGeometry x="110" y="30" width="90"  height="35" as="geometry" /></mxCell>
-    <mxCell id="c_confirmado" value="PedidoConfirmado" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f8cecc;strokeColor=#b85450;fontSize=10;" vertex="1" parent="grp_pedcomp"><mxGeometry x="210" y="30" width="110" height="35" as="geometry" /></mxCell>
-    <mxCell id="c_reservation_comp" value="Reservation" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f8cecc;strokeColor=#b85450;fontSize=10;" vertex="1" parent="grp_pedcomp"><mxGeometry x="330" y="30" width="40"  height="35" as="geometry" /></mxCell>
-
-    <!-- Admin comp -->
-    <mxCell id="c_dashboard" value="&lt;b&gt;Dashboard&lt;/b&gt;&#xa;(Admin)" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#e1d5e7;strokeColor=#9673a6;fontSize=10;" vertex="1" parent="1">
-      <mxGeometry x="1730" y="455" width="110" height="50" as="geometry" />
-    </mxCell>
-
-    <!-- Rotas → Componentes (setas tracejadas representativas) -->
-    <mxCell id="arr_pub_layout"   style="edgeStyle=orthogonalEdgeStyle;dashed=1;strokeColor=#82b366;"  edge="1" source="grp_public"  target="grp_layout"    parent="1"><mxGeometry relative="1" as="geometry" /></mxCell>
-    <mxCell id="arr_pub_sections" style="edgeStyle=orthogonalEdgeStyle;dashed=1;strokeColor=#82b366;"  edge="1" source="grp_public"  target="grp_sections"  parent="1"><mxGeometry relative="1" as="geometry" /></mxCell>
-    <mxCell id="arr_auth_comp"    style="edgeStyle=orthogonalEdgeStyle;dashed=1;strokeColor=#d79b00;"  edge="1" source="grp_auth"    target="grp_authcomp"  parent="1"><mxGeometry relative="1" as="geometry" /></mxCell>
-    <mxCell id="arr_order_comp"   style="edgeStyle=orthogonalEdgeStyle;dashed=1;strokeColor=#b85450;"  edge="1" source="grp_order"   target="grp_pedcomp"   parent="1"><mxGeometry relative="1" as="geometry" /></mxCell>
-    <mxCell id="arr_admin_dash"   style="edgeStyle=orthogonalEdgeStyle;dashed=1;strokeColor=#9673a6;"  edge="1" source="grp_admin"   target="c_dashboard"   parent="1"><mxGeometry relative="1" as="geometry" /></mxCell>
-
-    <!-- NavBar usa Login modal -->
-    <mxCell id="arr_navbar_login" style="edgeStyle=orthogonalEdgeStyle;dashed=1;strokeColor=#d6b656;endArrow=open;" edge="1" source="c_navbar" target="c_login" parent="1">
-      <mxGeometry relative="1" as="geometry" />
-    </mxCell>
-
-    <!-- ===== CAMADA 5: HOOKS ===== -->
-    <mxCell id="l5" value="5. Custom Hooks" style="text;html=1;strokeColor=none;fillColor=none;fontStyle=1;fontSize=10;fontColor=#666;" vertex="1" parent="1">
-      <mxGeometry x="60" y="595" width="130" height="20" as="geometry" />
-    </mxCell>
-
-    <mxCell id="grp_hooks" value="Custom Hooks — lógica de negócio" style="swimlane;startSize=25;fillColor=#e7f0ff;strokeColor=#6c8ebf;fontStyle=1;fontSize=10;" vertex="1" parent="1">
-      <mxGeometry x="200" y="590" width="870" height="75" as="geometry" />
-    </mxCell>
-    <mxCell id="h_navbar"     value="useNavbar"     style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;fontSize=10;" vertex="1" parent="grp_hooks"><mxGeometry x="10"  y="28" width="100" height="30" as="geometry" /></mxCell>
-    <mxCell id="h_login"      value="useLogin"      style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;fontSize=10;" vertex="1" parent="grp_hooks"><mxGeometry x="120" y="28" width="100" height="30" as="geometry" /></mxCell>
-    <mxCell id="h_adminlogin" value="useAdminLogin" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;fontSize=10;" vertex="1" parent="grp_hooks"><mxGeometry x="230" y="28" width="110" height="30" as="geometry" /></mxCell>
-    <mxCell id="h_cadastro"   value="useCadastro"   style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;fontSize=10;" vertex="1" parent="grp_hooks"><mxGeometry x="350" y="28" width="100" height="30" as="geometry" /></mxCell>
-    <mxCell id="h_pedidos"    value="usePedidos"    style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;fontSize=10;" vertex="1" parent="grp_hooks"><mxGeometry x="460" y="28" width="100" height="30" as="geometry" /></mxCell>
-    <mxCell id="h_pagamento"  value="usePagamento"  style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;fontSize=10;" vertex="1" parent="grp_hooks"><mxGeometry x="570" y="28" width="100" height="30" as="geometry" /></mxCell>
-    <mxCell id="h_reservation" value="useReservation" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;fontSize=10;" vertex="1" parent="grp_hooks"><mxGeometry x="680" y="28" width="100" height="30" as="geometry" /></mxCell>
-    <mxCell id="h_endereco"   value="useEndereco"   style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;fontSize=10;" vertex="1" parent="grp_hooks"><mxGeometry x="790" y="28" width="70"  height="30" as="geometry" /></mxCell>
-
-    <!-- Hooks → Componentes que os usam -->
-    <mxCell id="arr_h_navbar"     style="edgeStyle=orthogonalEdgeStyle;dashed=1;strokeColor=#6c8ebf;" edge="1" source="h_navbar"     target="c_navbar"            parent="1"><mxGeometry relative="1" as="geometry" /></mxCell>
-    <mxCell id="arr_h_login"      style="edgeStyle=orthogonalEdgeStyle;dashed=1;strokeColor=#6c8ebf;" edge="1" source="h_login"      target="c_login"             parent="1"><mxGeometry relative="1" as="geometry" /></mxCell>
-    <mxCell id="arr_h_adminlogin" style="edgeStyle=orthogonalEdgeStyle;dashed=1;strokeColor=#6c8ebf;" edge="1" source="h_adminlogin" target="c_dashboard"         parent="1"><mxGeometry relative="1" as="geometry" /></mxCell>
-    <mxCell id="arr_h_cadastro"   style="edgeStyle=orthogonalEdgeStyle;dashed=1;strokeColor=#6c8ebf;" edge="1" source="h_cadastro"   target="c_cadastro"          parent="1"><mxGeometry relative="1" as="geometry" /></mxCell>
-    <mxCell id="arr_h_pedidos"    style="edgeStyle=orthogonalEdgeStyle;dashed=1;strokeColor=#6c8ebf;" edge="1" source="h_pedidos"    target="c_pedidos"           parent="1"><mxGeometry relative="1" as="geometry" /></mxCell>
-    <mxCell id="arr_h_pagamento"  style="edgeStyle=orthogonalEdgeStyle;dashed=1;strokeColor=#6c8ebf;" edge="1" source="h_pagamento"  target="c_pagamento"         parent="1"><mxGeometry relative="1" as="geometry" /></mxCell>
-    <mxCell id="arr_h_reservation" style="edgeStyle=orthogonalEdgeStyle;dashed=1;strokeColor=#6c8ebf;" edge="1" source="h_reservation" target="c_reservation_comp" parent="1"><mxGeometry relative="1" as="geometry" /></mxCell>
-
-    <!-- ===== CAMADA 6: DADOS COMPARTILHADOS ===== -->
-    <mxCell id="l6" value="6. Dados / Assets" style="text;html=1;strokeColor=none;fillColor=none;fontStyle=1;fontSize=10;fontColor=#666;" vertex="1" parent="1">
-      <mxGeometry x="60" y="740" width="130" height="20" as="geometry" />
-    </mxCell>
-
-    <mxCell id="grp_data" value="share/ — dados e assets compartilhados" style="swimlane;startSize=25;fillColor=#fffde7;strokeColor=#bba500;fontStyle=1;fontSize=10;" vertex="1" parent="1">
-      <mxGeometry x="200" y="735" width="500" height="75" as="geometry" />
-    </mxCell>
-    <mxCell id="d_pratos"  value="data/pratos.ts&#xa;(cardápio completo)"  style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffff88;strokeColor=#bba500;fontSize=10;" vertex="1" parent="grp_data"><mxGeometry x="10"  y="28" width="150" height="35" as="geometry" /></mxCell>
-    <mxCell id="d_logo"    value="Logo/Logo.png"                           style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffff88;strokeColor=#bba500;fontSize=10;" vertex="1" parent="grp_data"><mxGeometry x="170" y="28" width="120" height="35" as="geometry" /></mxCell>
-    <mxCell id="d_photos"  value="Photo/ (imagens do restaurante)"         style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffff88;strokeColor=#bba500;fontSize=10;" vertex="1" parent="grp_data"><mxGeometry x="300" y="28" width="190" height="35" as="geometry" /></mxCell>
-
-    <!-- Data → Componentes -->
-    <mxCell id="arr_pratos_pedidos" style="edgeStyle=orthogonalEdgeStyle;dashed=1;strokeColor=#bba500;" edge="1" source="d_pratos" target="c_pedidos"  parent="1"><mxGeometry relative="1" as="geometry" /></mxCell>
-    <mxCell id="arr_pratos_menu"    style="edgeStyle=orthogonalEdgeStyle;dashed=1;strokeColor=#bba500;" edge="1" source="d_pratos" target="c_menusec"  parent="1"><mxGeometry relative="1" as="geometry" /></mxCell>
-    <mxCell id="arr_logo_navbar"    style="edgeStyle=orthogonalEdgeStyle;dashed=1;strokeColor=#bba500;" edge="1" source="d_logo"   target="c_navbar"   parent="1"><mxGeometry relative="1" as="geometry" /></mxCell>
-
-    <!-- ===== LEGENDA ===== -->
-    <mxCell id="legenda" value="Legenda" style="swimlane;startSize=25;fillColor=#f5f5f5;strokeColor=#999;fontStyle=1;fontSize=10;" vertex="1" parent="1">
-      <mxGeometry x="1100" y="620" width="370" height="120" as="geometry" />
-    </mxCell>
-    <mxCell id="leg1" value="" style="edgeStyle=orthogonalEdgeStyle;strokeColor=#333;" edge="1" parent="legenda"><mxGeometry x="20" y="40" width="60" height="0" relative="0" as="geometry"><Array as="points"><mxPoint x="80" y="40"/></Array></mxGeometry></mxCell>
-    <mxCell id="leg1l" value="Fluxo de renderização" style="text;html=1;fontSize=10;" vertex="1" parent="legenda"><mxGeometry x="95" y="30" width="160" height="20" as="geometry" /></mxCell>
-    <mxCell id="leg2" value="" style="edgeStyle=orthogonalEdgeStyle;dashed=1;strokeColor=#6c8ebf;" edge="1" parent="legenda"><mxGeometry x="20" y="70" width="60" height="0" relative="0" as="geometry"><Array as="points"><mxPoint x="80" y="70"/></Array></mxGeometry></mxCell>
-    <mxCell id="leg2l" value="Hook / dado utilizado" style="text;html=1;fontSize=10;" vertex="1" parent="legenda"><mxGeometry x="95" y="60" width="160" height="20" as="geometry" /></mxCell>
-
-  </root>
-</mxGraphModel>
+<mxfile host="65bd71144e">
+    <diagram id="wdO4lz3zVP2J-JVqwCIn" name="Página-1">
+        <mxGraphModel dx="1646" dy="663" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1920" pageHeight="1200" math="0" shadow="0">
+            <root>
+                <mxCell id="0"/>
+                <mxCell id="1" parent="0"/>
+                <mxCell id="titulo" value="Arquitetura — Pizzaria David" style="text;html=1;strokeColor=none;fillColor=none;align=center;fontSize=22;fontStyle=1;fontColor=#1a1a2e;" parent="1" vertex="1">
+                    <mxGeometry x="660" y="20" width="500" height="40" as="geometry"/>
+                </mxCell>
+                <mxCell id="l1" value="1. Entry Point" style="text;html=1;strokeColor=none;fillColor=none;fontStyle=1;fontSize=10;fontColor=#666;" parent="1" vertex="1">
+                    <mxGeometry x="60" y="75" width="120" height="20" as="geometry"/>
+                </mxCell>
+                <mxCell id="maintsx" value="&lt;b&gt;main.tsx&lt;/b&gt;&#xa;createRoot + BrowserRouter" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;fontSize=11;" parent="1" vertex="1">
+                    <mxGeometry x="840" y="70" width="200" height="50" as="geometry"/>
+                </mxCell>
+                <mxCell id="l2" value="2. Router" style="text;html=1;strokeColor=none;fillColor=none;fontStyle=1;fontSize=10;fontColor=#666;" parent="1" vertex="1">
+                    <mxGeometry x="60" y="175" width="120" height="20" as="geometry"/>
+                </mxCell>
+                <mxCell id="pizzariatsx" value="&lt;b&gt;Pizzaria.tsx&lt;/b&gt;&#xa;&lt;Routes&gt; — define todas as rotas" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;fontSize=11;" parent="1" vertex="1">
+                    <mxGeometry x="840" y="170" width="200" height="50" as="geometry"/>
+                </mxCell>
+                <mxCell id="arr_main_router" style="edgeStyle=orthogonalEdgeStyle;rounded=0;" parent="1" source="maintsx" target="pizzariatsx" edge="1">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="l3" value="3. Rotas" style="text;html=1;strokeColor=none;fillColor=none;fontStyle=1;fontSize=10;fontColor=#666;" parent="1" vertex="1">
+                    <mxGeometry x="60" y="285" width="120" height="20" as="geometry"/>
+                </mxCell>
+                <mxCell id="grp_public" value="Páginas Públicas" style="swimlane;startSize=25;fillColor=#f0fff0;strokeColor=#82b366;fontStyle=1;fontSize=10;" parent="1" vertex="1">
+                    <mxGeometry x="100" y="280" width="560" height="100" as="geometry"/>
+                </mxCell>
+                <mxCell id="r_home" value="/ → Home" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;fontSize=10;" parent="grp_public" vertex="1">
+                    <mxGeometry x="10" y="35" width="75" height="35" as="geometry"/>
+                </mxCell>
+                <mxCell id="r_about" value="/about → AboutUs" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;fontSize=10;" parent="grp_public" vertex="1">
+                    <mxGeometry x="95" y="35" width="90" height="35" as="geometry"/>
+                </mxCell>
+                <mxCell id="r_menu" value="/menu → Menu" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;fontSize=10;" parent="grp_public" vertex="1">
+                    <mxGeometry x="195" y="35" width="75" height="35" as="geometry"/>
+                </mxCell>
+                <mxCell id="r_app" value="/app → AppPromo" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;fontSize=10;" parent="grp_public" vertex="1">
+                    <mxGeometry x="280" y="35" width="85" height="35" as="geometry"/>
+                </mxCell>
+                <mxCell id="r_newsletter" value="/newsletter" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;fontSize=10;" parent="grp_public" vertex="1">
+                    <mxGeometry x="375" y="35" width="80" height="35" as="geometry"/>
+                </mxCell>
+                <mxCell id="r_contact" value="/contact" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;fontSize=10;" parent="grp_public" vertex="1">
+                    <mxGeometry x="465" y="35" width="80" height="35" as="geometry"/>
+                </mxCell>
+                <mxCell id="grp_auth" value="Autenticação" style="swimlane;startSize=25;fillColor=#fff8f0;strokeColor=#d79b00;fontStyle=1;fontSize=10;" parent="1" vertex="1">
+                    <mxGeometry x="680" y="280" width="360" height="100" as="geometry"/>
+                </mxCell>
+                <mxCell id="r_login" value="/login → Login" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffe6cc;strokeColor=#d79b00;fontSize=10;" parent="grp_auth" vertex="1">
+                    <mxGeometry x="10" y="35" width="100" height="35" as="geometry"/>
+                </mxCell>
+                <mxCell id="r_adminlogin" value="/admin/login → AdminLogin" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffe6cc;strokeColor=#d79b00;fontSize=10;" parent="grp_auth" vertex="1">
+                    <mxGeometry x="120" y="35" width="120" height="35" as="geometry"/>
+                </mxCell>
+                <mxCell id="r_cadastro" value="/cadastro → Cadastro" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffe6cc;strokeColor=#d79b00;fontSize=10;" parent="grp_auth" vertex="1">
+                    <mxGeometry x="250" y="35" width="100" height="35" as="geometry"/>
+                </mxCell>
+                <mxCell id="grp_order" value="Pedidos / Reserva" style="swimlane;startSize=25;fillColor=#fff0f0;strokeColor=#b85450;fontStyle=1;fontSize=10;" parent="1" vertex="1">
+                    <mxGeometry x="1060" y="280" width="260" height="100" as="geometry"/>
+                </mxCell>
+                <mxCell id="r_order" value="/order → Pedido" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f8cecc;strokeColor=#b85450;fontSize=10;" parent="grp_order" vertex="1">
+                    <mxGeometry x="10" y="35" width="110" height="35" as="geometry"/>
+                </mxCell>
+                <mxCell id="r_reservation" value="/reservation → Reservation" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f8cecc;strokeColor=#b85450;fontSize=10;" parent="grp_order" vertex="1">
+                    <mxGeometry x="130" y="35" width="120" height="35" as="geometry"/>
+                </mxCell>
+                <mxCell id="grp_admin" value="Admin (rotas aninhadas)" style="swimlane;startSize=25;fillColor=#f5f0ff;strokeColor=#9673a6;fontStyle=1;fontSize=10;" parent="1" vertex="1">
+                    <mxGeometry x="1340" y="280" width="440" height="100" as="geometry"/>
+                </mxCell>
+                <mxCell id="r_admin" value="/admin → Dashboard" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#e1d5e7;strokeColor=#9673a6;fontSize=10;" parent="grp_admin" vertex="1">
+                    <mxGeometry x="10" y="35" width="110" height="35" as="geometry"/>
+                </mxCell>
+                <mxCell id="r_adminpedidos" value="/admin/pedidos" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#e1d5e7;strokeColor=#9673a6;fontSize=10;" parent="grp_admin" vertex="1">
+                    <mxGeometry x="130" y="35" width="90" height="35" as="geometry"/>
+                </mxCell>
+                <mxCell id="r_adminreservas" value="/admin/reservas" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#e1d5e7;strokeColor=#9673a6;fontSize=10;" parent="grp_admin" vertex="1">
+                    <mxGeometry x="230" y="35" width="90" height="35" as="geometry"/>
+                </mxCell>
+                <mxCell id="r_admincardapio" value="/admin/cardapio" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#e1d5e7;strokeColor=#9673a6;fontSize=10;" parent="grp_admin" vertex="1">
+                    <mxGeometry x="330" y="35" width="90" height="35" as="geometry"/>
+                </mxCell>
+                <mxCell id="arr_r1" style="edgeStyle=orthogonalEdgeStyle;" parent="1" source="pizzariatsx" target="grp_public" edge="1">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="arr_r2" style="edgeStyle=orthogonalEdgeStyle;" parent="1" source="pizzariatsx" target="grp_auth" edge="1">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="arr_r3" style="edgeStyle=orthogonalEdgeStyle;" parent="1" source="pizzariatsx" target="grp_order" edge="1">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="arr_r4" style="edgeStyle=orthogonalEdgeStyle;" parent="1" source="pizzariatsx" target="grp_admin" edge="1">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="l4" value="4. Componentes" style="text;html=1;strokeColor=none;fillColor=none;fontStyle=1;fontSize=10;fontColor=#666;" parent="1" vertex="1">
+                    <mxGeometry x="60" y="445" width="130" height="20" as="geometry"/>
+                </mxCell>
+                <mxCell id="grp_layout" value="Layout (compartilhado por páginas públicas)" style="swimlane;startSize=25;fillColor=#fffde7;strokeColor=#d6b656;fontStyle=1;fontSize=10;" parent="1" vertex="1">
+                    <mxGeometry x="100" y="440" width="300" height="80" as="geometry"/>
+                </mxCell>
+                <mxCell id="c_navbar" value="NavBar&#xa;(Header)" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#fff2cc;strokeColor=#d6b656;fontSize=10;" parent="grp_layout" vertex="1">
+                    <mxGeometry x="10" y="30" width="130" height="35" as="geometry"/>
+                </mxCell>
+                <mxCell id="c_footer" value="Footer" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#fff2cc;strokeColor=#d6b656;fontSize=10;" parent="grp_layout" vertex="1">
+                    <mxGeometry x="155" y="30" width="130" height="35" as="geometry"/>
+                </mxCell>
+                <mxCell id="grp_sections" value="Section Components" style="swimlane;startSize=25;fillColor=#f0fff0;strokeColor=#82b366;fontStyle=1;fontSize=10;" parent="1" vertex="1">
+                    <mxGeometry x="420" y="440" width="560" height="80" as="geometry"/>
+                </mxCell>
+                <mxCell id="c_homesec" value="Section/Home" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;fontSize=9;" parent="grp_sections" vertex="1">
+                    <mxGeometry x="10" y="30" width="80" height="35" as="geometry"/>
+                </mxCell>
+                <mxCell id="c_aboutsec" value="Section/AboutUs" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;fontSize=9;" parent="grp_sections" vertex="1">
+                    <mxGeometry x="100" y="30" width="90" height="35" as="geometry"/>
+                </mxCell>
+                <mxCell id="c_menusec" value="Section/Menu" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;fontSize=9;" parent="grp_sections" vertex="1">
+                    <mxGeometry x="200" y="30" width="80" height="35" as="geometry"/>
+                </mxCell>
+                <mxCell id="c_appsec" value="Section/AppPromo" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;fontSize=9;" parent="grp_sections" vertex="1">
+                    <mxGeometry x="290" y="30" width="90" height="35" as="geometry"/>
+                </mxCell>
+                <mxCell id="c_newsec" value="Section/Newsletter" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;fontSize=9;" parent="grp_sections" vertex="1">
+                    <mxGeometry x="390" y="30" width="90" height="35" as="geometry"/>
+                </mxCell>
+                <mxCell id="c_consec" value="Section/Contact" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;fontSize=9;" parent="grp_sections" vertex="1">
+                    <mxGeometry x="490" y="30" width="60" height="35" as="geometry"/>
+                </mxCell>
+                <mxCell id="grp_authcomp" value="Componentes Auth" style="swimlane;startSize=25;fillColor=#fff8f0;strokeColor=#d79b00;fontStyle=1;fontSize=10;" parent="1" vertex="1">
+                    <mxGeometry x="1000" y="440" width="310" height="80" as="geometry"/>
+                </mxCell>
+                <mxCell id="c_login" value="Login&#xa;(modal)" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffe6cc;strokeColor=#d79b00;fontSize=10;" parent="grp_authcomp" vertex="1">
+                    <mxGeometry x="10" y="30" width="80" height="35" as="geometry"/>
+                </mxCell>
+                <mxCell id="c_adminlogin" value="AdminLogin" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffe6cc;strokeColor=#d79b00;fontSize=10;" parent="grp_authcomp" vertex="1">
+                    <mxGeometry x="100" y="30" width="90" height="35" as="geometry"/>
+                </mxCell>
+                <mxCell id="c_cadastro" value="Cadastro" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffe6cc;strokeColor=#d79b00;fontSize=10;" parent="grp_authcomp" vertex="1">
+                    <mxGeometry x="200" y="30" width="100" height="35" as="geometry"/>
+                </mxCell>
+                <mxCell id="grp_pedcomp" value="Componentes Pedidos" style="swimlane;startSize=25;fillColor=#fff0f0;strokeColor=#b85450;fontStyle=1;fontSize=10;" parent="1" vertex="1">
+                    <mxGeometry x="1330" y="440" width="380" height="80" as="geometry"/>
+                </mxCell>
+                <mxCell id="c_pedidos" value="Pedidos" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f8cecc;strokeColor=#b85450;fontSize=10;" parent="grp_pedcomp" vertex="1">
+                    <mxGeometry x="10" y="30" width="90" height="35" as="geometry"/>
+                </mxCell>
+                <mxCell id="c_pagamento" value="Pagamentos" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f8cecc;strokeColor=#b85450;fontSize=10;" parent="grp_pedcomp" vertex="1">
+                    <mxGeometry x="110" y="30" width="90" height="35" as="geometry"/>
+                </mxCell>
+                <mxCell id="c_confirmado" value="PedidoConfirmado" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f8cecc;strokeColor=#b85450;fontSize=10;" parent="grp_pedcomp" vertex="1">
+                    <mxGeometry x="210" y="30" width="110" height="35" as="geometry"/>
+                </mxCell>
+                <mxCell id="c_reservation_comp" value="Reservation" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f8cecc;strokeColor=#b85450;fontSize=10;" parent="grp_pedcomp" vertex="1">
+                    <mxGeometry x="330" y="30" width="40" height="35" as="geometry"/>
+                </mxCell>
+                <mxCell id="c_dashboard" value="&lt;b&gt;Dashboard&lt;/b&gt;&#xa;(Admin)" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#e1d5e7;strokeColor=#9673a6;fontSize=10;" parent="1" vertex="1">
+                    <mxGeometry x="1730" y="455" width="110" height="50" as="geometry"/>
+                </mxCell>
+                <mxCell id="arr_pub_layout" style="edgeStyle=orthogonalEdgeStyle;dashed=1;strokeColor=#82b366;" parent="1" source="grp_public" target="grp_layout" edge="1">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="arr_pub_sections" style="edgeStyle=orthogonalEdgeStyle;dashed=1;strokeColor=#82b366;" parent="1" source="grp_public" target="grp_sections" edge="1">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="arr_auth_comp" style="edgeStyle=orthogonalEdgeStyle;dashed=1;strokeColor=#d79b00;" parent="1" source="grp_auth" target="grp_authcomp" edge="1">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="arr_order_comp" style="edgeStyle=orthogonalEdgeStyle;dashed=1;strokeColor=#b85450;" parent="1" source="grp_order" target="grp_pedcomp" edge="1">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="arr_admin_dash" style="edgeStyle=orthogonalEdgeStyle;dashed=1;strokeColor=#9673a6;" parent="1" source="grp_admin" target="c_dashboard" edge="1">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="arr_navbar_login" style="edgeStyle=orthogonalEdgeStyle;dashed=1;strokeColor=#d6b656;endArrow=open;" parent="1" source="c_navbar" target="c_login" edge="1">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="l5" value="5. Custom Hooks" style="text;html=1;strokeColor=none;fillColor=none;fontStyle=1;fontSize=10;fontColor=#666;" parent="1" vertex="1">
+                    <mxGeometry x="60" y="595" width="130" height="20" as="geometry"/>
+                </mxCell>
+                <mxCell id="grp_hooks" value="Custom Hooks — lógica de negócio" style="swimlane;startSize=25;fillColor=#e7f0ff;strokeColor=#6c8ebf;fontStyle=1;fontSize=10;" parent="1" vertex="1">
+                    <mxGeometry x="420" y="540" width="890" height="183" as="geometry"/>
+                </mxCell>
+                <mxCell id="h_navbar" value="useNavbar" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;fontSize=10;" parent="grp_hooks" vertex="1">
+                    <mxGeometry x="10" y="28" width="100" height="30" as="geometry"/>
+                </mxCell>
+                <mxCell id="h_login" value="useLogin" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;fontSize=10;" parent="grp_hooks" vertex="1">
+                    <mxGeometry x="140" y="28" width="100" height="30" as="geometry"/>
+                </mxCell>
+                <mxCell id="h_adminlogin" value="useAdminLogin" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;fontSize=10;" parent="grp_hooks" vertex="1">
+                    <mxGeometry x="240" y="150" width="110" height="30" as="geometry"/>
+                </mxCell>
+                <mxCell id="h_pedidos" value="usePedidos" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;fontSize=10;" parent="grp_hooks" vertex="1">
+                    <mxGeometry x="460" y="100" width="100" height="30" as="geometry"/>
+                </mxCell>
+                <mxCell id="h_pagamento" value="usePagamento" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;fontSize=10;" parent="grp_hooks" vertex="1">
+                    <mxGeometry x="580" y="76.5" width="100" height="30" as="geometry"/>
+                </mxCell>
+                <mxCell id="h_reservation" value="useReservation" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;fontSize=10;" parent="grp_hooks" vertex="1">
+                    <mxGeometry x="680" y="40" width="100" height="30" as="geometry"/>
+                </mxCell>
+                <mxCell id="h_cadastro" value="useCadastro" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;fontSize=10;" parent="grp_hooks" vertex="1">
+                    <mxGeometry x="350" y="117" width="100" height="30" as="geometry"/>
+                </mxCell>
+                <mxCell id="arr_h_navbar" style="edgeStyle=orthogonalEdgeStyle;dashed=1;strokeColor=#6c8ebf;" parent="1" source="h_navbar" target="c_navbar" edge="1">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="arr_h_login" style="edgeStyle=orthogonalEdgeStyle;dashed=1;strokeColor=#6c8ebf;" parent="1" source="h_login" target="c_login" edge="1">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="arr_h_adminlogin" style="edgeStyle=orthogonalEdgeStyle;dashed=1;strokeColor=#6c8ebf;" parent="1" source="h_adminlogin" target="c_dashboard" edge="1">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="arr_h_cadastro" style="edgeStyle=orthogonalEdgeStyle;dashed=1;strokeColor=#6c8ebf;" parent="1" source="h_cadastro" target="c_cadastro" edge="1">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="arr_h_pedidos" style="edgeStyle=orthogonalEdgeStyle;dashed=1;strokeColor=#6c8ebf;" parent="1" source="h_pedidos" target="c_pedidos" edge="1">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="arr_h_pagamento" style="edgeStyle=orthogonalEdgeStyle;dashed=1;strokeColor=#6c8ebf;" parent="1" source="h_pagamento" target="c_pagamento" edge="1">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="arr_h_reservation" style="edgeStyle=orthogonalEdgeStyle;dashed=1;strokeColor=#6c8ebf;" parent="1" source="h_reservation" target="c_reservation_comp" edge="1">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="l6" value="6. Dados / Assets" style="text;html=1;strokeColor=none;fillColor=none;fontStyle=1;fontSize=10;fontColor=#666;" parent="1" vertex="1">
+                    <mxGeometry x="60" y="740" width="130" height="20" as="geometry"/>
+                </mxCell>
+                <mxCell id="grp_data" value="share/ — dados e assets compartilhados" style="swimlane;startSize=25;fillColor=#fffde7;strokeColor=#bba500;fontStyle=1;fontSize=10;" parent="1" vertex="1">
+                    <mxGeometry x="200" y="735" width="500" height="75" as="geometry"/>
+                </mxCell>
+                <mxCell id="d_pratos" value="data/pratos.ts&#xa;(cardápio completo)" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffff88;strokeColor=#bba500;fontSize=10;" parent="grp_data" vertex="1">
+                    <mxGeometry x="10" y="28" width="150" height="35" as="geometry"/>
+                </mxCell>
+                <mxCell id="d_logo" value="Logo/Logo.png" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffff88;strokeColor=#bba500;fontSize=10;" parent="grp_data" vertex="1">
+                    <mxGeometry x="170" y="28" width="120" height="35" as="geometry"/>
+                </mxCell>
+                <mxCell id="d_photos" value="Photo/ (imagens do restaurante)" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffff88;strokeColor=#bba500;fontSize=10;" parent="grp_data" vertex="1">
+                    <mxGeometry x="300" y="28" width="190" height="35" as="geometry"/>
+                </mxCell>
+                <mxCell id="arr_pratos_pedidos" style="edgeStyle=orthogonalEdgeStyle;dashed=1;strokeColor=#bba500;" parent="1" source="d_pratos" target="c_pedidos" edge="1">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="arr_pratos_menu" style="edgeStyle=orthogonalEdgeStyle;dashed=1;strokeColor=#bba500;" parent="1" source="h_cadastro" target="c_menusec" edge="1">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="arr_logo_navbar" style="edgeStyle=orthogonalEdgeStyle;dashed=1;strokeColor=#bba500;" parent="1" source="d_logo" target="c_navbar" edge="1">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="4" value="" style="edgeStyle=orthogonalEdgeStyle;dashed=1;strokeColor=#bba500;" edge="1" parent="1" source="d_pratos" target="h_cadastro">
+                    <mxGeometry relative="1" as="geometry">
+                        <mxPoint x="360" y="781" as="sourcePoint"/>
+                        <mxPoint x="660" y="505" as="targetPoint"/>
+                    </mxGeometry>
+                </mxCell>
+            </root>
+        </mxGraphModel>
+    </diagram>
+</mxfile>

@@ -38,8 +38,18 @@ export default function usePagamento(
 
         return novosErros;
     }
+    function formatarCartao(valor: string): string {
+        const limpo = valor.replace(/\D/g, '').slice(0, 16);
+        return limpo.replace(/(.{4})/g, '$1 ').trim();
+    }
 
-    function handleSubmit(e: FormEvent<HTMLFormElement>) {
+    function formatarValidade(valor: string): string {
+        const limpo = valor.replace(/\D/g, '').slice(0, 4);
+        if (limpo.length >= 3) return limpo.slice(0, 2) + '/' + limpo.slice(2);
+        return limpo;
+    }
+
+    async function handleSubmit(e: FormEvent<HTMLFormElement>) {
         e.preventDefault();
         const novosErros = validarPagamento();
 
@@ -53,28 +63,25 @@ export default function usePagamento(
             metodo: 'cartao_credito',
             titular: cardHolder,
         });
-        fetch('http://localhost:3000/pagamentos', {
-            method: 'POST',
-            headers: { 'Content-Type': 'application/json' },
-            body: JSON.stringify({
-                pedidoId: pedidoId,
-                metodo: 'cartao_credito',
-                titular: cardHolder,
-                total: total,
-            })
-        });
+        try {
+            const resposta = await fetch('http://localhost:3000/pagamentos', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({
+                    pedidoId: pedidoId,
+                    metodo: 'cartao_credito',
+                    titular: cardHolder,
+                    total: total,
+                }),
+            });
+            const dados = await resposta.json();
+            console.log(dados);
+        } catch (erro) {
+            console.log('Erro ao processar ', erro);
+        }
     }
 
-    function formatarCartao(valor: string): string {
-        const limpo = valor.replace(/\D/g, '').slice(0, 16);
-        return limpo.replace(/(.{4})/g, '$1 ').trim();
-    }
-
-    function formatarValidade(valor: string): string {
-        const limpo = valor.replace(/\D/g, '').slice(0, 4);
-        if (limpo.length >= 3) return limpo.slice(0, 2) + '/' + limpo.slice(2);
-        return limpo;
-    }
+    
 
     return {
         cardHolder,

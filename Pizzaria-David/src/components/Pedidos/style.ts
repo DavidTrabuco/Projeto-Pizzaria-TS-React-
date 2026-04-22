@@ -2,13 +2,13 @@ export const OrderStyle = {
 
     section: "relative min-h-screen bg-gradient-to-br from-red-950 to-black flex items-center justify-center px-6 py-16 overflow-hidden",
 
-    card: "relative z-10 w-full max-w-lg bg-white/5 backdrop-blur-md border border-white/10 rounded-2xl p-8 shadow-2xl shadow-black/60",
+    card: "relative z-10 w-full max-w-lg bg-white/5 backdrop-blur-md border border-white/10 rounded-2xl p-8 shadow-2xl shadow-black/60 animate-fade-up delay-1",
 
-    label: "text-orange-400 text-xs tracking-widest font-mono uppercase mb-2 text-center drop-shadow-sm",
+    label: "text-orange-400 text-xs tracking-widest font-mono uppercase mb-2 text-center drop-shadow-sm animate-fade-up delay-2",
 
-    title: "text-transparent bg-clip-text bg-gradient-to-r from-white to-orange-200 text-4xl font-extrabold uppercase tracking-wide text-center mb-2 drop-shadow-lg",
+    title: "text-transparent bg-clip-text bg-gradient-to-r from-white to-orange-200 text-4xl font-extrabold uppercase tracking-wide text-center mb-2 drop-shadow-lg animate-fade-up delay-3",
 
-    divider: "w-16 h-1 bg-orange-500 mx-auto mb-4 rounded-full shadow-[0_0_8px_rgba(249,115,22,0.6)]",
+    divider: "w-16 h-1 bg-orange-500 mx-auto mb-4 rounded-full shadow-[0_0_8px_rgba(249,115,22,0.6)] animate-fade-up delay-4",
 
     subtitle: "text-gray-400 text-sm text-center mb-8 leading-relaxed",
 

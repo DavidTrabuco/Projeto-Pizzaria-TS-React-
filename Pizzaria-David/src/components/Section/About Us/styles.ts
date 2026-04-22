@@ -2,12 +2,12 @@ export const AboutUsStyles = {
 
     section: "w-full px-6 lg:px-16 py-16 pt-36 flex flex-col gap-16",
     sectionBg: { background: "linear-gradient(135deg, #0f0500 0%, #1a0800 30%, #2d1200 60%, #0a0300 100%)" },
-    sectionHeader: "flex flex-col items-center text-center gap-2",
+    sectionHeader: "flex flex-col items-center text-center gap-2 animate-fade-up delay-1",
     sectionLabel: "text-orange-500 text-xl font-semibold tracking-widest uppercase drop-shadow-md animate-pulse",
     sectionDivider: "w-16 h-1 bg-orange-500 mt-2 shadow-[0_0_8px_rgba(249,115,22,0.6)]",
     row: "flex flex-col-reverse lg:flex-row items-center gap-8 lg:gap-12",
     rowReverse: "flex flex-col lg:flex-row-reverse items-center gap-8 lg:gap-12",
-    textBlock: "flex flex-col gap-4 flex-1",
+    textBlock: "flex flex-col gap-4 flex-1 animate-fade-up delay-2",
     imageBlock: "flex-1 w-full",
 
     label: "text-xs font-semibold text-white tracking-widest uppercase border-b-2 border-orange-500 pb-1 w-fit drop-shadow-sm",

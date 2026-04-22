@@ -2,11 +2,11 @@ export const NewsletterStyles = {
     section: "px-10 py-16 pt-36",
     sectionBg: { background: "linear-gradient(135deg, #0f0500 0%, #1a0800 30%, #2d1200 60%, #0a0300 100%)" },
 
-    header: "text-center mb-10",
+    header: "text-center mb-10 animate-fade-up delay-1",
     title: "text-transparent bg-clip-text bg-gradient-to-r from-white to-yellow-200 text-4xl font-bold mb-3 drop-shadow-lg",
     titleUnderline: "w-16 h-1 bg-[#f5c518] mx-auto rounded-full animate-pulse shadow-sm",
 
-    grid: "grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 max-w-5xl mx-auto",
+    grid: "grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 max-w-5xl mx-auto animate-fade-up delay-2",
 
     card: "flex flex-col gap-3 group hover:-translate-y-1 transition-all duration-300",
     cardImage: "w-full aspect-[4/3] object-cover rounded-xl transition-all duration-500 group-hover:scale-105 group-hover:brightness-110",

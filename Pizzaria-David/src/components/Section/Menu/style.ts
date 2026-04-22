@@ -2,12 +2,12 @@ export const MenuStyles = {
     section: "px-8 py-16 pt-36",
     sectionBg: { background: "linear-gradient(135deg, #0f0500 0%, #1a0800 30%, #2d1200 60%, #0a0300 100%)" },
 
-    header: "text-center max-w-xl mx-auto mb-12",
+    header: "text-center max-w-xl mx-auto mb-12 animate-fade-up delay-1",
     label: "text-[#c8822a] text-xs tracking-widest font-mono uppercase border-b-2 border-[#c8822a] pb-1 mb-4 inline-block drop-shadow-sm hover:brightness-125 transition-all duration-200",
     title: "text-transparent bg-clip-text bg-gradient-to-r from-white to-orange-200 text-3xl font-bold mb-4 drop-shadow-lg",
     description: "text-[#8a9e94] text-sm leading-relaxed",
 
-    grid: "grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 max-w-6xl mx-auto",
+    grid: "grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 max-w-6xl mx-auto animate-fade-up delay-2",
 
     card: "bg-[#111e17] rounded-xl overflow-hidden transition-all duration-300 hover:-translate-y-2 hover:shadow-[0_8px_30px_rgba(200,130,42,0.25)] hover:border hover:border-orange-500/30 group",
     cardImageWrapper: "w-full aspect-[4/3] overflow-hidden",

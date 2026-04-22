@@ -2,11 +2,11 @@ export const ContactStyles = {
     section: "px-10 py-16 pt-36",
     sectionBg: { background: "linear-gradient(135deg, #0f0500 0%, #1a0800 30%, #2d1200 60%, #0a0300 100%)" },
 
-    header: "text-center max-w-xl mx-auto mb-12",
+    header: "text-center max-w-xl mx-auto mb-12 animate-fade-up delay-1",
     title: "text-transparent bg-clip-text bg-gradient-to-r from-white to-orange-200 text-4xl font-bold mb-3 drop-shadow-lg",
     subtitle: "text-gray-50 text-sm leading-relaxed",
 
-    grid: "grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 max-w-5xl mx-auto mb-14",
+    grid: "grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 max-w-5xl mx-auto mb-14 animate-fade-up delay-2",
 
     card: "flex flex-col gap-1 border border-gray-200/20 rounded-xl p-6 bg-white/5 backdrop-blur-sm hover:-translate-y-2 hover:shadow-xl hover:shadow-red-900/50 hover:border-orange-400/50 transition-all duration-300",
     cardLabel: "text-gray-50 text-xs font-bold tracking-widest uppercase drop-shadow-sm",

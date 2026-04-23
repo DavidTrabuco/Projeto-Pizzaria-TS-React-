@@ -1,9 +1,12 @@
 import { Controller, Post, Body } from '@nestjs/common';
 import { AdminService } from './admin.service';
 import { CreateAdminDto } from './dto/create-admin.dto';
-import { ApiTags } from '@nestjs/swagger';
+import { ApiTags, ApiBearerAuth } from '@nestjs/swagger';
+
+
 
 @ApiTags('Admin')
+@ApiBearerAuth()
 @Controller('admin')
 export class AdminController {
   constructor(private readonly adminService: AdminService) {}

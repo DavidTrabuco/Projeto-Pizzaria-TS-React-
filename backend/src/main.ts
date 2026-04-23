@@ -12,6 +12,7 @@ async function bootstrap() {
   const config = new DocumentBuilder()
     .setTitle('Pizza House API')
     .setDescription('API de gerenciamento da pizzaria')
+    .addBearerAuth()
     .setVersion('1.0')
     .build();
   const documentFactory = () => SwaggerModule.createDocument(app, config);

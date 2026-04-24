@@ -1,10 +1,13 @@
-import { Controller, Get, Post, Body, Patch, Param, Delete } from '@nestjs/common';
-import { ApiTags, ApiOperation } from '@nestjs/swagger';
+import { Controller, Get, Post, Body, Patch, Param, Delete, UseGuards } from '@nestjs/common';
+import { ApiTags, ApiOperation, ApiBearerAuth } from '@nestjs/swagger';
 import { EnderecosService } from './enderecos.service';
 import { CreateEnderecoDto } from './dto/create-endereco.dto';
 import { UpdateEnderecoDto } from './dto/update-endereco.dto';
+import { AuthGuard } from '@nestjs/passport';
 
 @ApiTags('enderecos')
+@ApiBearerAuth()
+@UseGuards(AuthGuard('jwtAdmin'))
 @Controller('enderecos')
 export class EnderecosController {
   constructor(private readonly enderecosService: EnderecosService) {}

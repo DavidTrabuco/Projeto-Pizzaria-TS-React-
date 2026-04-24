@@ -9,10 +9,12 @@ import { PedidosModule } from './pedidos/pedidos.module';
 import { PagamentosModule } from './pagamentos/pagamentos.module';
 import { AdminModule } from './admin/admin.module';
 import { UsuariosModule } from './usuario/usuario.module';
-
+import { JwtStrategy } from './Auth/jwtstrategy';
+import { ConfigModule } from '@nestjs/config';
 @Module({
-  imports: [ReservasModule, EnderecosModule, PedidosModule, PagamentosModule, AdminModule, UsuariosModule],
+  imports: [ConfigModule.forRoot(), ReservasModule, EnderecosModule, PedidosModule, PagamentosModule, AdminModule, UsuariosModule],
   controllers: [AppController],
-  providers: [AppService],
+  providers: [AppService, JwtStrategy],
+  
 })
 export class AppModule {}

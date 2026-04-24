@@ -6,16 +6,16 @@ import { ApiTags, ApiBearerAuth } from '@nestjs/swagger';
 
 
 @ApiTags('Admin')
-@ApiBearerAuth()
+
 @Controller('admin')
 export class AdminController {
-  constructor(private readonly adminService: AdminService) {}
+  constructor(private readonly adminService: AdminService) { }
 
   @Post('criar')
+  
   criar(@Body() body: CreateAdminDto) {
     return this.adminService.criar(body.email, body.senha);
   }
-
   @Post('login')
   login(@Body() body: CreateAdminDto) {
     return this.adminService.login(body.email, body.senha);

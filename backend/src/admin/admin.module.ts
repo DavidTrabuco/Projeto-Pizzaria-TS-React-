@@ -4,22 +4,22 @@ import { AdminController } from './admin.controller';
 import { JwtModule } from '@nestjs/jwt';
 import { JwtStrategy } from '../Auth/jwtstrategy';
 import { PassportModule } from '@nestjs/passport';
-import { ConfigModule } from '@nestjs/config';
+import { ConfigModule, ConfigService } from '@nestjs/config';
 
 @Module({
   imports: [
-    ConfigModule.forRoot(),
-    JwtModule.register({
-      secret: process.env.JWT_SECRET!,
-      signOptions: { expiresIn: '8h' },
+    ConfigModule,
+    JwtModule.registerAsync({
+      imports: [ConfigModule],
+      useFactory: (configService: ConfigService) => ({
+        secret: configService.get<string>('JWT_SECRET'),
+        signOptions: { expiresIn: '8h' },
+      }),
+      inject: [ConfigService],
     }),
-    PassportModule, 
+    PassportModule,
   ],
   controllers: [AdminController],
   providers: [AdminService, JwtStrategy],
 })
-export class AdminModule {
-  constructor() {
-     console.log(process.env.JWT_SECRET);
-  }
-}
+export class AdminModule {}

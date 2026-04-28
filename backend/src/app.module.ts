@@ -12,7 +12,7 @@ import { UsuariosModule } from './usuario/usuario.module';
 import { JwtStrategy } from './Auth/jwtstrategy';
 import { ConfigModule } from '@nestjs/config';
 @Module({
-  imports: [ConfigModule.forRoot(), ReservasModule, EnderecosModule, PedidosModule, PagamentosModule, AdminModule, UsuariosModule],
+  imports: [ConfigModule.forRoot({ isGlobal: true }), ReservasModule, EnderecosModule, PedidosModule, PagamentosModule, AdminModule, UsuariosModule],
   controllers: [AppController],
   providers: [AppService, JwtStrategy],
   

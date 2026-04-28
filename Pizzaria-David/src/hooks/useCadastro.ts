@@ -57,18 +57,18 @@ export function useCadastro() {
         }
 
         setErros({});
-        setenviado(true);
 
         try {
             const resposta = await fetch('http://localhost:3000/usuarios/cadastrar', {
                 method: 'POST',
                 headers: { 'Content-Type': 'application/json' },
                 body: JSON.stringify({ nome, email, senha: password, telefone: contato })
-            })
+            });
             const dados = await resposta.json();
 
             if (dados.token) {
                 localStorage.setItem('token_usuario', dados.token);
+                setenviado(true);
                 window.location.href = '/';
             } else {
                 setErros({ geral: dados.mensagem || 'Erro ao cadastrar.' });
@@ -77,7 +77,7 @@ export function useCadastro() {
             console.error("Erro ao enviar dados:", error);
             setErros({ geral: 'Erro ao conectar com o servidor.' });
         }
-
-        return { nome, setNome, email, setEmail, password, setPassword, confirmPassword, setConfirmPassword, contato, setContato, erros, enviado, handleSubmit };
     }
+
+    return { nome, setNome, email, setEmail, password, setPassword, confirmPassword, setConfirmPassword, contato, setContato, erros, enviado, handleSubmit };
 }

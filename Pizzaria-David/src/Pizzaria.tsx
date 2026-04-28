@@ -14,6 +14,7 @@ import Cadastro from './pages/Cadastro'
 import AdminPages from './pages/AdminPages'
 import Dashboard from './components/Admin/Dashboard'
 
+//teste de comit aqui 
 function App() {
     return (
         <div className="flex flex-col min-h-screen">

@@ -31,7 +31,7 @@ export default function PedidoConfirmado({ pedido }: PedidoConfirmadoProps) {
                     </div>
                     <div className={S.infoBox}>
                         <span className={S.infoLabel}>Itens</span>
-                        {pedido.itens.map((it, i) => (
+                        {pedido.itens?.map((it, i) => (
                             <p key={i} className={S.infoItem}>• {it}</p>
                         ))}
                     </div>

@@ -37,7 +37,7 @@ export default function PedidoConfirmado({ pedido }: PedidoConfirmadoProps) {
                     </div>
                     <div className={S.infoBox}>
                         <span className={S.infoLabel}>Total</span>
-                        <p className={S.infoTotal}>R$ {pedido.total.toFixed(2)}</p>
+                        <p className={S.infoTotal}>R$ {pedido.total?.toFixed(2)}</p>
                     </div>
                     <div className={S.infoBox}>
                         <span className={S.infoLabel}>Status</span>

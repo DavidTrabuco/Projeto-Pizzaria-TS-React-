@@ -1,12 +1,15 @@
 import { NavLink } from "react-router";
 import { OrderStyle, OrderConfirmationStyles as S } from "./style";
 import { type PedidoConfirmado } from "../../hooks/usePedidos";
+import { usePedidoStore } from "../../store/usePedidoStore";
 
 interface PedidoConfirmadoProps {
     pedido: PedidoConfirmado;
 }
 
 export default function PedidoConfirmado({ pedido }: PedidoConfirmadoProps) {
+    const { limparPedido } = usePedidoStore();
+
     return (
         <section className={OrderStyle.section}>
             <div className={OrderStyle.card}>
@@ -45,10 +48,10 @@ export default function PedidoConfirmado({ pedido }: PedidoConfirmadoProps) {
                     </div>
                 </div>
 
-                <button className={S.buttonVoltar}>
-                    <NavLink to="/menu">Fazer outro pedido</NavLink>
+                <button className={S.buttonVoltar} onClick={limparPedido}>
+                    <NavLink to="/order">Fazer outro pedido</NavLink>
                 </button>
-                <button className={S.buttonVoltar}>
+                <button className={S.buttonVoltar} onClick={limparPedido}>
                     <NavLink to="/">Voltar para o início</NavLink>
                 </button>
             </div>

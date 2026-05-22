@@ -1,0 +1,24 @@
+services:
+  pizzaria-api:
+    build: ./api
+    container_name: pizzaria-api
+    ports:
+      - "3001:3000"
+    env_file:
+      - ./api/.env
+    networks:
+      - pizzaria-network
+
+  pizzaria-webapp:
+    build: ./pizzaria-webapp
+    container_name: pizzaria-webapp
+    ports:
+      - "8080:80"
+    depends_on:
+      - pizzaria-api
+    networks:
+      - pizzaria-network
+
+networks:
+  pizzaria-network:
+    driver: bridge

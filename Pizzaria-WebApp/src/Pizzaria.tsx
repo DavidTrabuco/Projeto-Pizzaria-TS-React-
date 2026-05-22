@@ -16,6 +16,7 @@ import AdminPages from './pages/AdminPages'
 import Dashboard from './components/Admin/Dashboard'
 import DashboardAdmin from './pages/DashboardAdmins'
 import DashboardPedidosPage from './pages/DasboardPedidos'
+import DashboardReservasPages from './pages/DashboardReservas'
 
 //teste de comit aqui 
 function App() {
@@ -37,7 +38,7 @@ function App() {
                 <Route path="/admin" element={<AdminPages />}>
                     <Route index element={<Dashboard />} />
                     <Route path="pedidos" element={<DashboardPedidosPage />} />
-                    <Route path="reservas" element={<div><h1>Reservas</h1></div>} />
+                    <Route path="reservas" element={<div><DashboardReservasPages /></div>} />
                     <Route path="cardapio" element={<div><h1>Cardápio</h1></div>} />
                     <Route path="admins" element={<DashboardAdmin />} />
                 </Route>

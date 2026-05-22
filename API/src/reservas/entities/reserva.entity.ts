@@ -16,6 +16,9 @@ export class Reserva {
 
   @Prop({ required: true })
   contato: string;
+
+  @Prop({ default: 'pendente' })
+  status: string;
 }
 
 export const ReservaSchema = SchemaFactory.createForClass(Reserva);

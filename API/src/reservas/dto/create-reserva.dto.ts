@@ -12,4 +12,7 @@ export class CreateReservaDto {
 
   @ApiProperty({ description: 'Contato telefônico ou email', example: '11999999999' })
   contato: string;
+
+  @ApiProperty({ description: 'Status da reserva', example: 'pendente', required: false })
+  status?: string;
 }

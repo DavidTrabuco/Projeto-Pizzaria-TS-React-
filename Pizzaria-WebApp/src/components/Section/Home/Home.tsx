@@ -1,7 +1,7 @@
 import { NavLink } from "react-router";
 import { HomeStyles } from "./style";
 import useHome from "../../../hooks/useHome";
-import Banner from "../../Banner/Banner";
+import Banner from "../../Information/Banner/Banner";
 
 export default function Home() {
     const { showBanner, closeBanner } = useHome();

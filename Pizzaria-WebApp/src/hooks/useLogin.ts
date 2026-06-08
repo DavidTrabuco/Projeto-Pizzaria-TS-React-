@@ -40,16 +40,19 @@ export default function useUsuarioLogin(onClose?: () => void) {
                 body: JSON.stringify({ email, senha })
             });
 
+            if (resposta.status >= 500) { navegar('/erro-500'); return; }
+            if (resposta.status === 404 || resposta.status === 400) { navegar('/erro-400'); return; }
+
             const dados = await resposta.json();
 
             if (dados.token) {
                 localStorage.setItem('token_usuario', dados.token);
-                 navegar('/');
+                navegar('/');
             } else {
                 setErro(dados.mensagem || 'Email ou senha incorretos.');
             }
         } catch {
-            setErro('Erro ao conectar com o servidor.');
+            navegar('/erro-500');
         } finally {
             setCarregando(false);
         }

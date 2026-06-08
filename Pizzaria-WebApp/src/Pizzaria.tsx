@@ -17,8 +17,10 @@ import Dashboard from './components/Admin/Dashboard'
 import DashboardAdmin from './pages/DashboardAdmins'
 import DashboardPedidosPage from './pages/DasboardPedidos'
 import DashboardReservasPages from './pages/DashboardReservas'
+import Tela500 from './components/Information/Tela_500'
+import Tela400 from './components/Information/Tela_400'
 
-//teste de comit aqui 
+//teste de comit aqui
 function App() {
     return (
         <div className="flex flex-col min-h-screen">
@@ -42,6 +44,9 @@ function App() {
                     <Route path="cardapio" element={<div><h1>Cardápio</h1></div>} />
                     <Route path="admins" element={<DashboardAdmin />} />
                 </Route>
+                <Route path="/erro-500" element={<Tela500 />} />
+                <Route path="/erro-400" element={<Tela400 />} />
+                <Route path="*" element={<Tela400 />} />
             </Routes>
         </div>
     )

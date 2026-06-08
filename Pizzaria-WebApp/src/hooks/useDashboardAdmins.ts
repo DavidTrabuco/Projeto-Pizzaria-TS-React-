@@ -1,4 +1,5 @@
 import { useState, useEffect } from "react"
+import { useNavigate } from "react-router"
 
 export type Admin = {
     _id: string
@@ -35,6 +36,7 @@ export default function useDashboardAdmins() {
     const [sucessoEditar, setSucessoEditar] = useState("")
 
     const emailLogado = getEmailFromToken()
+    const navegar = useNavigate()
 
     useEffect(() => {
         buscarAdmins()
@@ -80,10 +82,12 @@ export default function useDashboardAdmins() {
             const res = await fetch(`${import.meta.env.VITE_API_URL}/admin/listar`, {
                 headers: { Authorization: `Bearer ${token}` },
             })
+            if (res.status >= 500) { navegar('/erro-500'); return; }
+            if (res.status === 404 || res.status === 400) { navegar('/erro-400'); return; }
             const dados = await res.json()
             setAdmins(Array.isArray(dados) ? dados : [])
         } catch {
-            setErro("Erro ao carregar administradores.")
+            navegar('/erro-500');
         } finally {
             setCarregando(false)
         }
@@ -94,7 +98,7 @@ export default function useDashboardAdmins() {
         setEnviando(true)
         try {
             const token = localStorage.getItem("token_admin")
-            await fetch(`${import.meta.env.VITE_API_URL}/admin/criar`, {
+            const res = await fetch(`${import.meta.env.VITE_API_URL}/admin/criar`, {
                 method: "POST",
                 headers: {
                     "Content-Type": "application/json",
@@ -102,12 +106,14 @@ export default function useDashboardAdmins() {
                 },
                 body: JSON.stringify({ email: emailConvite, senha: senhaConvite }),
             })
+            if (res.status >= 500) { navegar('/erro-500'); return; }
+            if (res.status === 404 || res.status === 400) { navegar('/erro-400'); return; }
             setEmailConvite("")
             setSenhaConvite("")
             setMostrarFormConvite(false)
             buscarAdmins()
         } catch {
-            setErro("Erro ao convidar administrador.")
+            navegar('/erro-500');
         } finally {
             setEnviando(false)
         }
@@ -144,6 +150,8 @@ export default function useDashboardAdmins() {
                 },
                 body: JSON.stringify({ senhaAtual, novaSenha }),
             })
+            if (res.status >= 500) { navegar('/erro-500'); return; }
+            if (res.status === 404 || res.status === 400) { navegar('/erro-400'); return; }
             const dados = await res.json()
             if (dados.mensagem === "Senha atualizada com sucesso!") {
                 setSucessoEditar(dados.mensagem)
@@ -153,7 +161,7 @@ export default function useDashboardAdmins() {
                 setErro(dados.mensagem ?? "Erro ao atualizar senha.")
             }
         } catch {
-            setErro("Erro ao conectar com o servidor.")
+            navegar('/erro-500');
         } finally {
             setSalvando(false)
         }

@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { useNavigate } from "react-router";
 
 function validar(email: string, novaSenha: string, confirmar: string): string | null {
     if (!email) return 'O e-mail é obrigatório.';
@@ -16,6 +17,7 @@ export default function useEsqueciSenha() {
     const [erro, setErro] = useState<string | null>(null);
     const [sucesso, setSucesso] = useState<string | null>(null);
     const [carregando, setCarregando] = useState(false);
+    const navegar = useNavigate();
 
     async function handleSubmit(e: React.FormEvent<HTMLFormElement>) {
         e.preventDefault();
@@ -38,6 +40,9 @@ export default function useEsqueciSenha() {
                 body: JSON.stringify({ email, novaSenha }),
             });
 
+            if (resposta.status >= 500) { navegar('/erro-500'); return; }
+            if (resposta.status === 404 || resposta.status === 400) { navegar('/erro-400'); return; }
+
             const dados = await resposta.json();
 
             if (resposta.ok) {
@@ -49,7 +54,7 @@ export default function useEsqueciSenha() {
                 setErro(dados.mensagem || 'Erro ao redefinir senha.');
             }
         } catch {
-            setErro('Erro de rede. Tente novamente mais tarde.');
+            navegar('/erro-500');
         } finally {
             setCarregando(false);
         }

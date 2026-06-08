@@ -1,4 +1,5 @@
 import { useState, useMemo, useEffect, type FormEvent } from 'react';
+import { useNavigate } from 'react-router';
 
 // Interface que bate com o schema real do banco (MongoDB)
 export interface Reserva {
@@ -38,7 +39,7 @@ export function useDashboardReservas() {
     const [enviando, setEnviando] = useState(false);
     const [enviado, setEnviado] = useState(false);
     const [mostrarDetalhes, setMostrarDetalhes] = useState('');
-
+    const navegar = useNavigate();
 
     const [reservas, setReservas] = useState<Reserva[]>([]);
     const [carregando, setCarregando] = useState(false);
@@ -84,16 +85,17 @@ export function useDashboardReservas() {
                 method: 'GET',
                 headers: { Authorization: `Bearer ${token}` },
             });
+            if (res.status >= 500) { navegar('/erro-500'); return; }
+            if (res.status === 404 || res.status === 400) { navegar('/erro-400'); return; }
             const dados = await res.json();
-            // normaliza: adiciona status e mesa padrão se o banco não tiver
             const normalizado: Reserva[] = (Array.isArray(dados) ? dados : []).map((r: Reserva) => ({
                 ...r,
                 status: r.status ?? 'pendente',
                 mesa: r.mesa ?? Math.ceil(Math.random() * 8),
             }));
             setReservas(normalizado);
-        } catch (err) {
-            setErroApi(err instanceof Error ? err.message : 'Erro ao buscar reservas.');
+        } catch {
+            navegar('/erro-500');
         } finally {
             setCarregando(false);
         }
@@ -135,12 +137,14 @@ export function useDashboardReservas() {
                 headers: { 'Content-Type': 'application/json', Authorization: `Bearer ${token}` },
                 body: JSON.stringify({ nome, pessoas: Number(pessoas), dataHorario, contato }),
             });
+            if (res.status >= 500) { navegar('/erro-500'); return; }
+            if (res.status === 404 || res.status === 400) { navegar('/erro-400'); return; }
             if (!res.ok) throw new Error('Erro ao criar reserva');
             const nova: Reserva = await res.json();
             setReservas(prev => [...prev, { ...nova, status: 'pendente', mesa: Math.ceil(Math.random() * 8) }]);
             setEnviado(true);
         } catch {
-            setErros({ geral: 'Não foi possível criar a reserva. Verifique a conexão com a API.' });
+            navegar('/erro-500');
         } finally {
             setEnviando(false);
             fecharModal();

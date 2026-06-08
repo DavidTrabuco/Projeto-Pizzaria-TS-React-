@@ -1,4 +1,5 @@
 import { useState, useEffect } from "react"
+import { useNavigate } from "react-router"
 
 export type StatusPedido = "pendente" | "confirmado" | "em preparo" | "saiu para entrega" | "entregue"
 
@@ -15,6 +16,7 @@ export default function useDashboardPedidos() {
     const [carregando, setCarregando] = useState(true)
     const [erro, setErro] = useState("")
     const [filtroStatus, setFiltroStatus] = useState<StatusPedido | "todos">("todos")
+    const navegar = useNavigate()
 
     useEffect(() => {
         buscarPedidos()
@@ -27,10 +29,12 @@ export default function useDashboardPedidos() {
             const res = await fetch(`${import.meta.env.VITE_API_URL}/pedidos`, {
                 headers: { Authorization: `Bearer ${token}` },
             })
+            if (res.status >= 500) { navegar('/erro-500'); return; }
+            if (res.status === 404 || res.status === 400) { navegar('/erro-400'); return; }
             const dados = await res.json()
             setPedidos(Array.isArray(dados) ? dados : [])
         } catch {
-            setErro("Erro ao carregar pedidos.")
+            navegar('/erro-500');
         } finally {
             setCarregando(false)
         }

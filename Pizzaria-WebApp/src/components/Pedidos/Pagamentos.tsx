@@ -38,7 +38,7 @@ export default function Pagamentos({ pedido, onConfirmar, onCancelar, enviando }
                 <h1 className={OrderStyle.title}>Pagamento</h1>
                 <div className={OrderStyle.divider}></div>
 
-                <div className={`${PaymentStyles.resumoBox} w-full max-w-lg mb-4`}>
+                <div className={PaymentStyles.resumoBox}>
                     <p className={PaymentStyles.resumoLabel}>Resumo do pedido</p>
                     <p className={PaymentStyles.resumoItens}>
                         {pedido.itens.join(' • ')}

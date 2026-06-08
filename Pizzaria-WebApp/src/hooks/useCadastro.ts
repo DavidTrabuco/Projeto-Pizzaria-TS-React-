@@ -66,6 +66,10 @@ export function useCadastro() {
                 headers: { 'Content-Type': 'application/json' },
                 body: JSON.stringify({ nome, email, senha: password, telefone: contato })
             });
+
+            if (resposta.status >= 500) { navigate('/erro-500'); return; }
+            if (resposta.status === 404 || resposta.status === 400) { navigate('/erro-400'); return; }
+
             const dados = await resposta.json();
 
             if (dados.token) {
@@ -75,9 +79,8 @@ export function useCadastro() {
             } else {
                 setErros({ geral: dados.mensagem || 'Erro ao cadastrar.' });
             }
-        } catch (error) {
-            console.error("Erro ao enviar dados:", error);
-            setErros({ geral: 'Erro ao conectar com o servidor.' });
+        } catch {
+            navigate('/erro-500');
         }
     }
 

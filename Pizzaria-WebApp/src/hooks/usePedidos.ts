@@ -1,4 +1,5 @@
 import { useState, useMemo, type FormEvent } from 'react';
+import { useNavigate } from 'react-router';
 import { usePedidoStore } from '../store/usePedidoStore';
 
 export interface ItemPedido {
@@ -34,7 +35,7 @@ export function usePedidos() {
     const [enviando, setEnviando] = useState(false);
     const [pedidoPendente, setPedidoPendente] = useState<PedidoPendente | null>(null);
 
-    // pedidoConfirmado agora vive no Zustand (persiste no localStorage)
+    const navegar = useNavigate();
     const { pedidoConfirmado, setPedidoConfirmado, limparPedido } = usePedidoStore();
 
     const totalCalculado = useMemo(
@@ -112,17 +113,17 @@ export function usePedidos() {
                 }),
             });
 
+            if (resposta.status >= 500) { navegar('/erro-500'); return; }
+            if (resposta.status === 404 || resposta.status === 400) { navegar('/erro-400'); return; }
+
             if (resposta.ok) {
-                // API funcionou: usa os dados reais do servidor
                 const dados = await resposta.json();
                 setPedidoConfirmado({ ...dados, status: 'confirmado' });
             } else {
-                // API retornou erro (404, 500, etc): usa dados locais
                 confirmarComDadosLocais();
             }
         } catch {
-            // Sem conexão / API offline: usa dados locais
-            confirmarComDadosLocais();
+            navegar('/erro-500');
         } finally {
             setEnviando(false);
         }

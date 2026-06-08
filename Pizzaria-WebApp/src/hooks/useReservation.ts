@@ -104,12 +104,12 @@ export function useReservation() {
                         pessoas: Number(pessoas),
                         dataHorario: `${data}T${horario}`,
                         contato: contato,
-
                     }),
                 });
-            const dados = await resposta.json();
 
-            console.log('Reserva criada ', dados);
+            if (resposta.status >= 500) { navigate('/erro-500'); return; }
+            if (resposta.status === 404 || resposta.status === 400) { navigate('/erro-400'); return; }
+
             setNome('');
             setPessoas('');
             setData('');
@@ -117,8 +117,8 @@ export function useReservation() {
             setContato('');
             setEnviado(true);
 
-        } catch (erro) {
-            console.log('Erro ao fazer a reserva ', erro)
+        } catch {
+            navigate('/erro-500');
 
         } finally {
             setEnviando(false)

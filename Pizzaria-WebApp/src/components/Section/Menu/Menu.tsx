@@ -13,9 +13,9 @@ export default function Menu() {
                     <span className={MenuStyles.label}>MENU</span>
                     <h2 className={MenuStyles.title}>Explore Our Foods</h2>
                     <p className={MenuStyles.description}>
-                        Lorem ipsum dolor sit amet consectetur. Dolor elit vitae nunc varius.
-                        Facilisis eget cras sit semper sit enim. Turpis aliquet at ac eu donec ut.
-                        Sagittis vestibulum at quis non massa netus.
+                        Na Pizzaria-Trabuco, nós transformamos água, farinha e paixão na verdadeira experiência da pizza artesanal. 
+                        Nosso compromisso é levar até a sua mesa um produto feito com ingredientes selecionados, frescas e de 
+                        altíssima qualidade.
                     </p>
                     <NavLink to='/Order'>
                         <button className={MenuStyles.buttonLogin}>Fazer pedidos</button>
@@ -35,7 +35,7 @@ export default function Menu() {
                                     <span className={MenuStyles.price}>R$ {prato.preco.toFixed(2)}</span>
                                     <span className={MenuStyles.oldPrice}>{prato.cardOldprice}</span>
                                 </div>
-                                <button className={MenuStyles.button} onClick={() => navigate('/order')}>Order Now</button>
+                                <button className={MenuStyles.button} onClick={() => navigate('/order', { state: { prato } })}>Pedir agora</button>
                             </div>
                         </div>
                     ))}

@@ -1,4 +1,4 @@
-import { AdminStyles } from "./styles"
+import { AdminDashboardStyles } from "./styles"
 import useDashboardAdmins from "../../../hooks/useDashboardAdmins"
 
 function getInitials(email: string): string {
@@ -32,11 +32,11 @@ export default function Admins() {
     } = useDashboardAdmins()
 
     return (
-        <div className={AdminStyles.container}>
-            <div className={AdminStyles.header}>
-                <h1 className={AdminStyles.headerTitle}>Usuários com acesso</h1>
+        <div className={AdminDashboardStyles.container}>
+            <div className={AdminDashboardStyles.header}>
+                <h1 className={AdminDashboardStyles.headerTitle}>Usuários com acesso</h1>
                 <button
-                    className={AdminStyles.inviteTopBtn}
+                    className={AdminDashboardStyles.inviteTopBtn}
                     onClick={() => setMostrarFormConvite((v) => !v)}
                 >
                     ＋ Convidar
@@ -45,7 +45,7 @@ export default function Admins() {
 
             {erro && <p className="text-red-400 text-sm">{erro}</p>}
 
-            <div className={AdminStyles.usersList}>
+            <div className={AdminDashboardStyles.usersList}>
                 {carregando && (
                     <p className="text-gray-500 text-sm">Carregando...</p>
                 )}
@@ -56,31 +56,31 @@ export default function Admins() {
 
                 {admins.map((admin) => (
                     <div key={admin._id}>
-                        <div className={AdminStyles.userCard}>
-                            <div className={`${AdminStyles.avatar} ${AdminStyles.avatarDefault}`}>
+                        <div className={AdminDashboardStyles.userCard}>
+                            <div className={`${AdminDashboardStyles.avatar} ${AdminDashboardStyles.avatarDefault}`}>
                                 {getInitials(admin.email)}
                             </div>
 
-                            <div className={AdminStyles.userInfo}>
-                                <p className={AdminStyles.userName}>{admin.email}</p>
+                            <div className={AdminDashboardStyles.userInfo}>
+                                <p className={AdminDashboardStyles.userName}>{admin.email}</p>
                                 {admin.email === emailLogado && (
                                     <p className="text-xs text-orange-400 mt-0.5">você</p>
                                 )}
                             </div>
 
-                            <div className={AdminStyles.userActions}>
+                            <div className={AdminDashboardStyles.userActions}>
                                 {admin.email === emailLogado && (
                                     editandoId === admin._id ? (
                                         <button
                                             onClick={cancelarEdicao}
-                                            className={AdminStyles.cancelBtn}
+                                            className={AdminDashboardStyles.cancelBtn}
                                         >
                                             Cancelar
                                         </button>
                                     ) : (
                                         <button
                                             onClick={() => abrirEdicao(admin._id)}
-                                            className={AdminStyles.editBtn}
+                                            className={AdminDashboardStyles.editBtn}
                                         >
                                             Editar
                                         </button>
@@ -90,28 +90,28 @@ export default function Admins() {
                         </div>
 
                         {editandoId === admin._id && (
-                            <div className={AdminStyles.editSection}>
-                                <h2 className={AdminStyles.inviteTitle}>Alterar senha</h2>
+                            <div className={AdminDashboardStyles.editSection}>
+                                <h2 className={AdminDashboardStyles.inviteTitle}>Alterar senha</h2>
                                 {sucessoEditar ? (
                                     <p className="text-green-400 text-sm">{sucessoEditar}</p>
                                 ) : (
-                                    <div className={AdminStyles.inviteForm}>
+                                    <div className={AdminDashboardStyles.inviteForm}>
                                         <input
-                                            className={AdminStyles.inviteInput}
+                                            className={AdminDashboardStyles.inviteInput}
                                             type="password"
                                             placeholder="Senha atual"
                                             value={senhaAtual}
                                             onChange={(e) => setSenhaAtual(e.target.value)}
                                         />
                                         <input
-                                            className={AdminStyles.inviteInput}
+                                            className={AdminDashboardStyles.inviteInput}
                                             type="password"
                                             placeholder="Nova senha (mín. 6 caracteres)"
                                             value={novaSenha}
                                             onChange={(e) => setNovaSenha(e.target.value)}
                                         />
                                         <button
-                                            className={AdminStyles.inviteSubmitBtn}
+                                            className={AdminDashboardStyles.inviteSubmitBtn}
                                             onClick={handleEditar}
                                             disabled={salvando}
                                         >
@@ -126,11 +126,11 @@ export default function Admins() {
             </div>
 
             {mostrarFormConvite && (
-                <div className={AdminStyles.inviteSection}>
-                    <h2 className={AdminStyles.inviteTitle}>Convidar novo admin</h2>
-                    <div className={AdminStyles.inviteForm}>
+                <div className={AdminDashboardStyles.inviteSection}>
+                    <h2 className={AdminDashboardStyles.inviteTitle}>Convidar novo admin</h2>
+                    <div className={AdminDashboardStyles.inviteForm}>
                         <input
-                            className={AdminStyles.inviteInput}
+                            className={AdminDashboardStyles.inviteInput}
                             type="email"
                             required
                             placeholder="email@exemplo.com"
@@ -138,7 +138,7 @@ export default function Admins() {
                             onChange={(e) => setEmailConvite(e.target.value)}
                         />
                         <input
-                            className={AdminStyles.inviteInput}
+                            className={AdminDashboardStyles.inviteInput}
                             type="password"
                             required
                             placeholder="Senha"
@@ -146,7 +146,7 @@ export default function Admins() {
                             onChange={(e) => setSenhaConvite(e.target.value)}
                         />
                         <button
-                            className={AdminStyles.inviteSubmitBtn}
+                            className={AdminDashboardStyles.inviteSubmitBtn}
                             onClick={handleConvidar}
                             disabled={enviando}
                         >

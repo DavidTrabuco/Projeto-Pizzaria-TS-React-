@@ -1,5 +1,6 @@
 import './index.css'
 import { Routes, Route } from 'react-router'
+import FAQFlutuante from './components/FAQ/FAQ'
 import Home from './pages/Home'
 import AboutUsPage from './pages/AboutUsPage'
 import MenuPage from './pages/MenuPage'
@@ -24,6 +25,7 @@ import Tela400 from './components/Information/Tela_400'
 function App() {
     return (
         <div className="flex flex-col min-h-screen">
+            <FAQFlutuante />
             <Routes>
                 <Route path="/" element={<Home />} />
                 <Route path="/about" element={<AboutUsPage />} />

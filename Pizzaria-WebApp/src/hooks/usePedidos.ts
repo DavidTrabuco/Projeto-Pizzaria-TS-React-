@@ -1,6 +1,8 @@
-import { useState, useMemo, type FormEvent } from 'react';
+import { useState, useMemo, type FormEvent, useEffect} from 'react';
 import { useNavigate } from 'react-router';
 import { usePedidoStore } from '../store/usePedidoStore';
+import { Pratos } from '../share/data/pratos';
+import { useLocation } from 'react-router';
 
 export interface ItemPedido {
     nome: string;
@@ -34,8 +36,23 @@ export function usePedidos() {
     const [erros, setErros] = useState<Record<string, string>>({});
     const [enviando, setEnviando] = useState(false);
     const [pedidoPendente, setPedidoPendente] = useState<PedidoPendente | null>(null);
+    const [categoriaFiltro, setCategoriaFiltro] = useState("Todos");
+
+    const pratosFiltrados = categoriaFiltro === "Todos"
+        ? Pratos
+        : Pratos.filter((prato) => prato.category === categoriaFiltro);
 
     const navegar = useNavigate();
+    const location = useLocation();
+    const pratoPreSelecionado = location.state?.prato;
+
+    useEffect(() => {
+        if (pratoPreSelecionado) {
+            adicionarItem(pratoPreSelecionado.cardName, pratoPreSelecionado.preco);
+        }
+    }, []);
+
+
     const { pedidoConfirmado, setPedidoConfirmado, limparPedido } = usePedidoStore();
 
     const totalCalculado = useMemo(
@@ -141,5 +158,7 @@ export function usePedidos() {
         handleSubmit,
         pedidoPendente, handlePagamento, cancelarPagamento,
         pedidoConfirmado, limparPedido,
+        categoriaFiltro,setCategoriaFiltro,
+        pratosFiltrados
     };
 }

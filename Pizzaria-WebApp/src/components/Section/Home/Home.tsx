@@ -7,6 +7,7 @@ export default function Home() {
     const { showBanner, closeBanner } = useHome();
 
     return (
+        
         <section className={HomeStyles.section} style={HomeStyles.sectionBackground}>
 
             <div className={HomeStyles.overlay} />
@@ -23,6 +24,11 @@ export default function Home() {
             </div>
             {showBanner && <Banner onClose={closeBanner} />}
 
+            
+
         </section>
+
+        
+        
     );
 }

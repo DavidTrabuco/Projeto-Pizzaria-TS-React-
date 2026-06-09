@@ -2,7 +2,6 @@ import { useState } from "react";
 import { NavLink } from "react-router";
 import { OrderStyle as S } from "./style";
 import { usePedidos } from "../../hooks/usePedidos";
-import { Pratos } from "../../share/data/pratos";
 import PedidoConfirmado from "./PedidoConfirmado";
 import Pagamentos from "./Pagamentos";
 import Carrinho from "./Carrinho";
@@ -16,7 +15,7 @@ export default function Pedidos() {
         totalCalculado,
         erros, enviando, handleSubmit,
         pedidoPendente, handlePagamento, cancelarPagamento,
-        pedidoConfirmado,
+        pedidoConfirmado,categoriaFiltro,setCategoriaFiltro, pratosFiltrados
     } = usePedidos();
 
     if (pedidoConfirmado) {
@@ -43,6 +42,7 @@ export default function Pedidos() {
                 <div className={S.divider}></div>
 
                 <div className={S.sectionRow}>
+                    <NavLink to="/menu" className={S.buttonVoltarSmall}>← Voltar</NavLink>
                     <p className={S.sectionLabel}>Selecione os itens</p>
                     <div className={S.cartBtnWrapper}>
                         <button
@@ -57,8 +57,24 @@ export default function Pedidos() {
                         )}
                     </div>
                 </div>
+                <div className={S.buttonGrid}>
+                    <button onClick={() => setCategoriaFiltro("Todos")} className={categoriaFiltro === "Todos" ? S.buttonOutlineActive : S.buttonOutline}>
+                        Todos
+                    </button>
+                    <button onClick={() => setCategoriaFiltro("Pizza")} className={categoriaFiltro === "Pizza" ? S.buttonOutlineActive : S.buttonOutline}>
+                        Pizza
+                    </button>
+                    <button onClick={() => setCategoriaFiltro("Sobremesa")} className={categoriaFiltro === "Sobremesa" ? S.buttonOutlineActive : S.buttonOutline}>
+                        Sobremesa
+                    </button>
+                    <button onClick={() => setCategoriaFiltro("Bebidas")} className={categoriaFiltro === "Bebidas" ? S.buttonOutlineActive : S.buttonOutline}>
+                        Bebidas
+                    </button>
+                </div>
+
+                
                 <div className={S.menuGrid}>
-                    {Pratos.map((prato) => (
+                    {pratosFiltrados.map((prato) => (
                         <button
                             key={prato.id}
                             type="button"
@@ -74,7 +90,7 @@ export default function Pedidos() {
                     ))}
                 </div>
 
-                <NavLink to="/menu" className={S.buttonVoltar}>Voltar para o Menu</NavLink>
+                
             </div>
 
            

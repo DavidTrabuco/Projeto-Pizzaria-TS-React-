@@ -84,4 +84,13 @@ export const ReservationStyle = {
     `,
 
     erro: "text-red-500 text-xl text-center mt-2",
+
+    avisoLogin: `
+        flex items-center gap-3
+        bg-red-500/10 border border-red-500/30 rounded-xl
+        px-4 py-3 mb-2
+        text-red-300 text-sm
+    `,
+
+    avisoLoginLink: "underline font-semibold hover:text-white transition-colors",
 }

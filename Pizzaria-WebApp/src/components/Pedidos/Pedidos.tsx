@@ -8,6 +8,7 @@ import Carrinho from "./Carrinho";
 
 export default function Pedidos() {
     const [carrinhoAberto, setCarrinhoAberto] = useState(false);
+    const estaLogado = !!localStorage.getItem('token_usuario');
 
     const {
         nomeCliente, setNomeCliente,
@@ -106,6 +107,7 @@ export default function Pedidos() {
                 totalCalculado={totalCalculado}
                 erros={erros}
                 enviando={enviando}
+                estaLogado={estaLogado}
                 handleSubmit={handleSubmit}
             />
         </section>

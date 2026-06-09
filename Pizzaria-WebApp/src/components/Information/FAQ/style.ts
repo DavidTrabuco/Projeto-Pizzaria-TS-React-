@@ -38,6 +38,7 @@ export const FAQStyle = {
     `,
 
     item: `
+        w-full text-left text-inherit bg-transparent
         border-b border-white/5
         px-5 py-3
         cursor-pointer

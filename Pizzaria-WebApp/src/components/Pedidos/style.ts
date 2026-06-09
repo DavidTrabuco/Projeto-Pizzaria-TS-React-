@@ -171,6 +171,15 @@ export const OrderStyle = {
 
     itemVazio: "text-gray-500 text-[13px] italic",
 
+    avisoLogin: `
+        flex items-center gap-3
+        bg-red-500/10 border border-red-500/30 rounded-xl
+        px-4 py-3 mb-2
+        text-red-300 text-sm
+    `,
+
+    avisoLoginLink: "underline font-semibold hover:text-white transition-colors",
+
     itemLinha: `
         flex justify-between items-center
         text-orange-200 text-[14px]

@@ -1,3 +1,4 @@
+import { NavLink } from "react-router";
 import { OrderStyle as S } from "./style";
 import type { ItemPedido } from "../../hooks/usePedidos";
 import type { FormEvent } from "react";
@@ -13,6 +14,7 @@ interface CarrinhoProps {
     totalCalculado: number;
     erros: Record<string, string>;
     enviando: boolean;
+    estaLogado: boolean;
     handleSubmit: (e: FormEvent<HTMLFormElement>) => void;
 }
 
@@ -27,6 +29,7 @@ export default function Carrinho({
     totalCalculado,
     erros,
     enviando,
+    estaLogado,
     handleSubmit,
 }: CarrinhoProps) {
     if (!isOpen) return null;
@@ -43,6 +46,16 @@ export default function Carrinho({
                 <p className={S.label}>Pizza House</p>
                 <h2 className={S.subtitle}>Resumo do Pedido</h2>
                 <div className={S.divider}></div>
+
+                {!estaLogado && (
+                    <div className={S.avisoLogin}>
+                        <span>⚠️</span>
+                        <span>
+                            Você precisa estar logado para finalizar o pedido.{' '}
+                            <NavLink to="/login" onClick={onClose} className={S.avisoLoginLink}>Fazer login</NavLink>
+                        </span>
+                    </div>
+                )}
 
                 <form className={S.form} onSubmit={handleSubmit}>
 
@@ -92,7 +105,7 @@ export default function Carrinho({
                         />
                     </div>
 
-                    <button className={S.button} type="submit" disabled={enviando}>
+                    <button className={S.button} type="submit" disabled={enviando || !estaLogado}>
                         Ir para Pagamento
                     </button>
 

@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { FAQStyle as S } from "./style";
-import { FAQ } from "../../share/data/PerguntasFAQ";
+import { FAQ } from "../../../share/data/PerguntasFAQ";
 
 export default function FAQFlutuante() {
     const [aberto, setAberto] = useState(false);
@@ -20,7 +20,7 @@ export default function FAQFlutuante() {
                     </div>
 
                     {FAQ.map((item, index) => (
-                        <div key={index} className={S.item} onClick={() => toggleItem(index)}>
+                        <button key={item.Pergunta} className={S.item} onClick={() => toggleItem(index)}>
                             <p className={S.pergunta}>
                                 {item.Pergunta}
                                 <span className={S.seta} style={{ transform: itemAberto === index ? 'rotate(180deg)' : 'rotate(0deg)' }}>
@@ -30,7 +30,7 @@ export default function FAQFlutuante() {
                             {itemAberto === index && (
                                 <p className={S.resposta}>{item.Resposta}</p>
                             )}
-                        </div>
+                        </button>
                     ))}
                 </div>
             )}

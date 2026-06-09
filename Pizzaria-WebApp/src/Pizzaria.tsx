@@ -1,6 +1,6 @@
 import './index.css'
 import { Routes, Route } from 'react-router'
-import FAQFlutuante from './components/FAQ/FAQ'
+import FAQFlutuante from './components/Information/FAQ/FAQ'
 import Home from './pages/Home'
 import AboutUsPage from './pages/AboutUsPage'
 import MenuPage from './pages/MenuPage'

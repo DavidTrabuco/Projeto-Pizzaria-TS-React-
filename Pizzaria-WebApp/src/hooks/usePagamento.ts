@@ -31,7 +31,7 @@ export default function usePagamento(
             novosErros.expiryDate = 'Data de validade inválida (MM/AA)';
         }
 
-        if (!cvv.trim() || cvv.length !== 3) {
+        if (!cvv.trim() || cvv.length < 3) {
             novosErros.cvv = 'CVV inválido';
         }
 

@@ -7,6 +7,7 @@ import { useLocation } from 'react-router';
 export interface ItemPedido {
     nome: string;
     preco: number;
+    quantidade: number;
 }
 
 export interface PedidoPendente {
@@ -32,7 +33,12 @@ export interface DadosPagamento {
 
 export function usePedidos() {
     const [nomeCliente, setNomeCliente] = useState('');
-    const [itens, setItens] = useState<ItemPedido[]>([]);
+    const [itens, setItens] = useState<ItemPedido[]>(() => {
+        const salvo = localStorage.getItem('carrinho');
+        if (!salvo) return [];
+        const parsed = JSON.parse(salvo) as ItemPedido[];
+        return parsed.map(i => ({ ...i, quantidade: i.quantidade ?? 1 }));
+    });
     const [erros, setErros] = useState<Record<string, string>>({});
     const [enviando, setEnviando] = useState(false);
     const [pedidoPendente, setPedidoPendente] = useState<PedidoPendente | null>(null);
@@ -52,20 +58,35 @@ export function usePedidos() {
         }
     }, []);
 
+    useEffect(() => {
+        localStorage.setItem('carrinho', JSON.stringify(itens));
+    }, [itens]);
+
 
     const { pedidoConfirmado, setPedidoConfirmado, limparPedido } = usePedidoStore();
 
     const totalCalculado = useMemo(
-        () => itens.reduce((acc, item) => acc + item.preco, 0),
+        () => itens.reduce((acc, item) => acc + item.preco * item.quantidade, 0),
         [itens]
     );
 
     function adicionarItem(nome: string, preco: number) {
-        setItens([...itens, { nome, preco }]);
+        setItens(prev => {
+            const existente = prev.find(i => i.nome === nome);
+            if (existente) {
+                return prev.map(i => i.nome === nome ? { ...i, quantidade: i.quantidade + 1 } : i);
+            }
+            return [...prev, { nome, preco, quantidade: 1 }];
+        });
     }
 
-    function removerItem(index: number) {
-        setItens(itens.filter((_, i) => i !== index));
+    function removerItem(nome: string) {
+        setItens(prev => {
+            const existente = prev.find(i => i.nome === nome);
+            if (!existente) return prev;
+            if (existente.quantidade === 1) return prev.filter(i => i.nome !== nome);
+            return prev.map(i => i.nome === nome ? { ...i, quantidade: i.quantidade - 1 } : i);
+        });
     }
 
     function validar(): Record<string, string> {
@@ -96,7 +117,7 @@ export function usePedidos() {
         setErros({});
         setPedidoPendente({
             nomeCliente,
-            itens: itens.map((i) => i.nome),
+            itens: itens.flatMap(i => Array(i.quantidade).fill(i.nome)),
             itensDetalhes: itens,
             total: totalCalculado,
             status: 'pendente',
@@ -136,8 +157,10 @@ export function usePedidos() {
             if (resposta.ok) {
                 const dados = await resposta.json();
                 setPedidoConfirmado({ ...dados, status: 'confirmado' });
+                localStorage.removeItem('carrinho');
             } else {
                 confirmarComDadosLocais();
+                localStorage.removeItem('carrinho');
             }
         } catch {
             navegar('/erro-500');

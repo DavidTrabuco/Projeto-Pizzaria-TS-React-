@@ -53,7 +53,7 @@ export default function Pedidos() {
                             🛒
                         </button>
                         {itens.length > 0 && (
-                            <span className={S.cartBadge}>{itens.length}</span>
+                            <span className={S.cartBadge}>{itens.reduce((acc, i) => acc + i.quantidade, 0)}</span>
                         )}
                     </div>
                 </div>
@@ -101,6 +101,7 @@ export default function Pedidos() {
                 nomeCliente={nomeCliente}
                 setNomeCliente={setNomeCliente}
                 itens={itens}
+                adicionarItem={adicionarItem}
                 removerItem={removerItem}
                 totalCalculado={totalCalculado}
                 erros={erros}

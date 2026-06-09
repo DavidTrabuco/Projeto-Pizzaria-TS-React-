@@ -8,7 +8,8 @@ interface CarrinhoProps {
     nomeCliente: string;
     setNomeCliente: (v: string) => void;
     itens: ItemPedido[];
-    removerItem: (index: number) => void;
+    adicionarItem: (nome: string, preco: number) => void;
+    removerItem: (nome: string) => void;
     totalCalculado: number;
     erros: Record<string, string>;
     enviando: boolean;
@@ -21,6 +22,7 @@ export default function Carrinho({
     nomeCliente,
     setNomeCliente,
     itens,
+    adicionarItem,
     removerItem,
     totalCalculado,
     erros,
@@ -62,18 +64,16 @@ export default function Carrinho({
                             <p className={S.itemVazio}>Nenhum item selecionado ainda</p>
                         ) : (
                             <ul>
-                                {itens.map((it, index) => (
-                                    <li key={index} className={S.itemLinha}>
+                                {itens.map((it) => (
+                                    <li key={it.nome} className={S.itemLinha}>
                                         <span>• {it.nome}</span>
                                         <div className={S.itemActions}>
-                                            <span className={S.itemPreco}>R$ {it.preco.toFixed(2)}</span>
-                                            <button
-                                                type="button"
-                                                onClick={() => removerItem(index)}
-                                                className={S.itemRemover}
-                                            >
-                                                ✕
-                                            </button>
+                                            <span className={S.itemPreco}>R$ {(it.preco * it.quantidade).toFixed(2)}</span>
+                                            <div className={S.qtyControl}>
+                                                <button type="button" onClick={() => removerItem(it.nome)} className={S.qtyBtn}>−</button>
+                                                <span className={S.qtyNum}>{it.quantidade}</span>
+                                                <button type="button" onClick={() => adicionarItem(it.nome, it.preco)} className={S.qtyBtn}>+</button>
+                                            </div>
                                         </div>
                                     </li>
                                 ))}

@@ -183,6 +183,18 @@ export const OrderStyle = {
 
     itemActions: "flex items-center gap-[10px]",
 
+    qtyControl: "flex items-center gap-1",
+
+    qtyBtn: `
+        w-6 h-6 flex items-center justify-center
+        bg-white/10 border border-white/20 rounded
+        text-white text-sm
+        hover:bg-orange-500/40 hover:border-orange-500
+        transition-colors duration-200 cursor-pointer
+    `,
+
+    qtyNum: "text-white text-sm font-bold w-5 text-center",
+
     buttonVoltar: `
         mt-4 py-3 px-8
         bg-gradient-to-r from-orange-500 to-red-600

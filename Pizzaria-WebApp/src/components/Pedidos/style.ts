@@ -165,7 +165,7 @@ export const OrderStyle = {
 
     sectionLabel: "text-gray-400 text-[13px] uppercase tracking-[2px]",
 
-    cartBtnWrapper: "",
+    cartBtnWrapper: "relative",
 
     erroSpan: "text-red-500 text-[13px]",
 

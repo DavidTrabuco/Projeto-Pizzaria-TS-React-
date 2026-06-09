@@ -1,4 +1,4 @@
-import { PedidosStyles } from "./styles"
+import { PedidosDashboardStyles as Pedido } from "./styles"
 import useDashboardPedidos, { type StatusPedido } from "../../../hooks/useDashboardPedidos"
 
 const LABEL_STATUS: Record<StatusPedido, string> = {
@@ -10,11 +10,11 @@ const LABEL_STATUS: Record<StatusPedido, string> = {
 }
 
 const STATUS: Record<StatusPedido, string> = {
-    "pendente":            PedidosStyles.badgePendente,
-    "confirmado":          PedidosStyles.badgeConfirmado,
-    "em preparo":        PedidosStyles.badgeEmPreparo,
-    "saiu para entrega": PedidosStyles.badgeSaioEntrega,
-    "entregue":            PedidosStyles.badgeEntregue,
+    "pendente":            Pedido.badgePendente,
+    "confirmado":          Pedido.badgeConfirmado,
+    "em preparo":        Pedido.badgeEmPreparo,
+    "saiu para entrega": Pedido.badgeSaioEntrega,
+    "entregue":            Pedido.badgeEntregue,
 }
 
 export default function Pedidos() {
@@ -32,34 +32,34 @@ export default function Pedidos() {
     } = useDashboardPedidos()
 
     return (
-        <div className={PedidosStyles.container}>
+        <div className={Pedido.container}>
 
-            <div className={PedidosStyles.cardsGrid}>
-                <div className={PedidosStyles.metricCard}>
-                    <p className={PedidosStyles.metricCardHeader}>⏱ Aguardando</p>
-                    <p className={PedidosStyles.metricValue}>{totalAguardando}</p>
+            <div className={Pedido.cardsGrid}>
+                <div className={Pedido.metricCard}>
+                    <p className={Pedido.metricCardHeader}>⏱ Aguardando</p>
+                    <p className={Pedido.metricValue}>{totalAguardando}</p>
                 </div>
-                <div className={PedidosStyles.metricCard}>
-                    <p className={PedidosStyles.metricCardHeader}>🔥 Preparando</p>
-                    <p className={PedidosStyles.metricValue}>{totalPreparando}</p>
+                <div className={Pedido.metricCard}>
+                    <p className={Pedido.metricCardHeader}>🔥 Preparando</p>
+                    <p className={Pedido.metricValue}>{totalPreparando}</p>
                 </div>
-                <div className={PedidosStyles.metricCard}>
-                    <p className={PedidosStyles.metricCardHeader}>✓ Entregues hoje</p>
-                    <p className={PedidosStyles.metricValue}>{totalEntregues}</p>
+                <div className={Pedido.metricCard}>
+                    <p className={Pedido.metricCardHeader}>✓ Entregues hoje</p>
+                    <p className={Pedido.metricValue}>{totalEntregues}</p>
                 </div>
-                <div className={PedidosStyles.metricCard}>
-                    <p className={PedidosStyles.metricCardHeader}>$ Faturamento</p>
-                    <p className={PedidosStyles.metricValue}>
+                <div className={Pedido.metricCard}>
+                    <p className={Pedido.metricCardHeader}>$ Faturamento</p>
+                    <p className={Pedido.metricValue}>
                         R${faturamento.toLocaleString("pt-BR", { minimumFractionDigits: 2 })}
                     </p>
                 </div>
             </div>
 
-            <div className={PedidosStyles.filterBar}>
-                <h1 className={PedidosStyles.filterTitle}>Pedidos do dia</h1>
-                <div className={PedidosStyles.filterRight}>
+            <div className={Pedido.filterBar}>
+                <h1 className={Pedido.filterTitle}>Pedidos do dia</h1>
+                <div className={Pedido.filterRight}>
                     <select
-                        className={PedidosStyles.filterSelect}
+                        className={Pedido.filterSelect}
                         value={filtroStatus}
                         onChange={(e) => setFiltroStatus(e.target.value as StatusPedido | "todos")}
                     >
@@ -70,7 +70,7 @@ export default function Pedidos() {
                         <option value="saiu para entrega">Saiu p/ entrega</option>
                         <option value="entregue">Entregue</option>
                     </select>
-                    <button className={PedidosStyles.refreshBtn} onClick={buscarPedidos}>
+                    <button className={Pedido.refreshBtn} onClick={buscarPedidos}>
                         ↺ Atualizar
                     </button>
                 </div>
@@ -78,43 +78,43 @@ export default function Pedidos() {
 
             {erro && <p className="text-red-400 text-sm">{erro}</p>}
 
-            <div className={PedidosStyles.tableWrapper}>
-                <table className={PedidosStyles.table}>
+            <div className={Pedido.tableWrapper}>
+                <table className={Pedido.table}>
                     <thead>
                         <tr>
-                            <th className={PedidosStyles.tableTh}>#</th>
-                            <th className={PedidosStyles.tableTh}>Cliente</th>
-                            <th className={PedidosStyles.tableTh}>Itens</th>
-                            <th className={PedidosStyles.tableTh}>Total</th>
-                            <th className={PedidosStyles.tableTh}>Status</th>
+                            <th className={Pedido.tableTh}>#</th>
+                            <th className={Pedido.tableTh}>Cliente</th>
+                            <th className={Pedido.tableTh}>Itens</th>
+                            <th className={Pedido.tableTh}>Total</th>
+                            <th className={Pedido.tableTh}>Status</th>
                         </tr>
                     </thead>
                     <tbody>
                         {carregando && (
                             <tr>
-                                <td className={PedidosStyles.emptyRow} colSpan={5}>
+                                <td className={Pedido.emptyRow} colSpan={5}>
                                     Carregando...
                                 </td>
                             </tr>
                         )}
                         {!carregando && pedidos.length === 0 && (
                             <tr>
-                                <td className={PedidosStyles.emptyRow} colSpan={5}>
+                                <td className={Pedido.emptyRow} colSpan={5}>
                                     Nenhum pedido encontrado.
                                 </td>
                             </tr>
                         )}
                         {pedidos.map((pedido, index) => (
-                            <tr key={pedido._id} className={PedidosStyles.tableRow}>
-                                <td className={PedidosStyles.tableTd}>
+                            <tr key={pedido._id} className={Pedido.tableRow}>
+                                <td className={Pedido.tableTd}>
                                     #{String(index + 1).padStart(3, "0")}
                                 </td>
-                                <td className={PedidosStyles.tableTd}>{pedido.nomeCliente}</td>
-                                <td className={PedidosStyles.tableTd}>{pedido.itens.join(", ")}</td>
-                                <td className={PedidosStyles.tableTd}>
+                                <td className={Pedido.tableTd}>{pedido.nomeCliente}</td>
+                                <td className={Pedido.tableTd}>{pedido.itens.join(", ")}</td>
+                                <td className={Pedido.tableTd}>
                                     R${pedido.total.toLocaleString("pt-BR", { minimumFractionDigits: 2 })}
                                 </td>
-                                <td className={PedidosStyles.tableTd}>
+                                <td className={Pedido.tableTd}>
                                     <span className={STATUS[pedido.status]}>
                                         {LABEL_STATUS[pedido.status]}
                                     </span>

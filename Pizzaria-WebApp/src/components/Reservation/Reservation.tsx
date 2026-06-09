@@ -81,7 +81,7 @@ export default function Reservation() {
                                 value={contato}
                                 onChange={(e) => setContato(mascaraTelefone(e.target.value))}
                             />
-                            {erros.contato && <span style={{ color: 'red' }}>{erros.contato}</span>}
+                            {erros.contato && <span className={ReservationStyle.erro}>{erros.contato}</span>}
                         </div>
 
                         <button className={ReservationStyle.button} type="submit" disabled={enviando}>

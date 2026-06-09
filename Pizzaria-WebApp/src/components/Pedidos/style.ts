@@ -126,6 +126,18 @@ export const OrderStyle = {
 
     menuGrid: "flex flex-wrap justify-center gap-3 w-full mb-8",
 
+    buttonGrid: "flex flex-row items-center gap-4 mb-4 w-full",
+
+    buttonVoltarSmall: `
+        py-1 px-3
+        bg-transparent border border-white/20
+        text-gray-400 text-xs font-bold tracking-widest uppercase
+        rounded-lg
+        transition-all duration-300
+        hover:border-orange-500/60 hover:text-white
+        cursor-pointer whitespace-nowrap
+    `,
+
     menuCard: `
         flex flex-col
         cursor-pointer
@@ -146,14 +158,14 @@ export const OrderStyle = {
     `,
 
     sectionRow: `
-        relative w-full
-        flex justify-center items-center
+        w-full
+        flex justify-between items-center
         mt-6 mb-3
     `,
 
     sectionLabel: "text-gray-400 text-[13px] uppercase tracking-[2px]",
 
-    cartBtnWrapper: "absolute right-0",
+    cartBtnWrapper: "",
 
     erroSpan: "text-red-500 text-[13px]",
 
@@ -181,6 +193,37 @@ export const OrderStyle = {
         hover:from-orange-400 hover:to-red-500
         hover:-translate-y-1 hover:shadow-xl hover:shadow-orange-500/40
         active:scale-95 cursor-pointer
+    `,
+     buttonOutline: `
+        w-full mt-2 py-2 px-5
+        bg-transparent border border-white/20
+        text-gray-300 text-sm font-bold tracking-widest uppercase
+        rounded-xl
+        transition-all duration-300
+        hover:border-orange-500/60 hover:text-white
+        hover:-translate-y-1 active:scale-95
+        cursor-pointer
+    `,
+     buttonOutlineTodos: `
+        w-full mt-2 py-2 px-5
+        bg-transparent border
+        text-gray-300 text-sm font-bold tracking-widest uppercase
+        rounded-xl
+        transition-all duration-300
+        hover:border-orange-500/60 hover:text-white
+        hover:-translate-y-1 active:scale-95
+        cursor-pointer
+    `,
+
+    buttonOutlineActive: `
+        w-full mt-2 py-2 px-5
+        bg-gradient-to-r from-orange-500 to-red-600
+        border border-orange-500
+        text-white text-sm font-bold tracking-widest uppercase
+        rounded-xl
+        shadow-lg shadow-orange-900/40
+        transition-all duration-300
+        cursor-pointer
     `,
 }
 

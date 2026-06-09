@@ -19,9 +19,8 @@ export default function AboutUs() {
                         We Invite You to Visit Our Pizzaria House
                     </h3>
                     <p className={AboutUsStyles.paragraph}>
-                        Lorem ipsum dolor sit amet consectetur. Dolor elit vitae nunc varius.
-                        Facilisis eget cras semper sit enim. Turpis aliquet at ac eu donec.
-                        Sagittis vestibulum at quis non massa netus.
+                        Do molho de tomate artesanal aos queijos e embutidos nobres, cada item do nosso cardápio é escolhido a dedo. 
+                        Combinamos a tradição das receitas clássicas com a criatividade de sabores exclusivos que você só encontra aqui.
                     </p>
                     <button className={AboutUsStyles.button}>READ MORE</button>
                 </div>
@@ -38,9 +37,9 @@ export default function AboutUs() {
                     <span className={AboutUsStyles.label}>COFFEE MENU</span>
                     <h3 className={AboutUsStyles.title}>Quality Kava Beans with our Barist</h3>
                     <p className={AboutUsStyles.paragraph}>
-                        Lorem ipsum dolor sit amet consectetur. Dolor elit vitae nunc varius.
-                        Facilisis eget cras semper sit enim. Turpis aliquet at ac eu donec.
-                        Sagittis vestibulum at quis non massa netus.
+                       Uma boa pizza começa pela base. Nossa massa passa por um processo de longa fermentação, o que garante uma textura 
+                       incrivelmente leve, bordas aeradas, crocantes por fora e macias por dentro.
+                        Além de muito mais saborosa, ela é de fácil digestão para que você aproveite cada pedaço sem pressa.
                     </p>
                     <button className={AboutUsStyles.button}>READ MORE</button>
                 </div>
@@ -53,9 +52,8 @@ export default function AboutUs() {
                         Use the Tips & Recipes of Our Pizzaiolo
                     </h3>
                     <p className={AboutUsStyles.paragraph}>
-                        Lorem ipsum dolor sit amet consectetur. Dolor elit vitae nunc varius.
-                        Facilisis eget cras semper sit enim. Turpis aliquet at ac eu donec.
-                        Sagittis vestibulum at quis non massa netus.
+                       Bateu a vontade e não quer sair de casa? Deixe com a gente! Nossa equipe de entrega é treinada para que a sua pizza chegue rápida,
+                        intacta e saindo fumaça. Utilizamos embalagens térmicas especiais que preservam a crocância da borda e mantêm o queijo perfeitamente derretido. Clique no botão abaixo e faça o seu pedido em poucos minutos!
                     </p>
                     <button className={AboutUsStyles.button}>READ MORE</button>
                 </div>

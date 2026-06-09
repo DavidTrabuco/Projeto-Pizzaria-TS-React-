@@ -1,4 +1,4 @@
-export const AdminStyles = {
+export const AdminDashboardStyles = {
     container: "w-full p-6 space-y-6",
 
     header: "flex items-center justify-between mb-6",
@@ -29,7 +29,7 @@ export const AdminStyles = {
     cancelBtn: "px-4 py-1.5 bg-transparent border border-red-800/40 text-red-400 text-sm rounded-lg hover:border-red-600/60 transition-all cursor-pointer",
 }
 
-export const CardapioStyles = {
+export const CardapioDashboardStyles = {
     container: "w-full p-6 space-y-6",
     header: "flex items-center justify-between mb-6",
     headerTitle: "text-base font-semibold text-white",
@@ -45,7 +45,7 @@ export const CardapioStyles = {
     deleteBtn: "flex-1 py-1.5 bg-transparent border border-red-800/40 text-red-400 text-xs rounded-lg hover:border-red-600/60 transition-all cursor-pointer",
 }
 
-export const PedidosStyles = {
+export const PedidosDashboardStyles = {
     container: "w-full p-6 space-y-6",
 
     // cards de métricas
